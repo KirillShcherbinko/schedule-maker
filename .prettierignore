@@ -1,0 +1,10 @@
+node_modules
+.gitignore
+package.json
+package-lock.json
+dist
+build
+coverage
+.env
+*.log
+bun.lock
