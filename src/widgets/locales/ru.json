@@ -1,0 +1,11 @@
+{
+  "header": {
+    "settings": {
+      "title": "Настройки",
+      "language-switcher": {
+        "russian": "Русский",
+        "english": "Английский"
+      }
+    }
+  }
+}

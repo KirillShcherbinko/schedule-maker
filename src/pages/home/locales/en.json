@@ -1,0 +1,69 @@
+{
+  "home": {
+    "welcome": {
+      "title": "Welcome to Event Weave 📅",
+      "subtitle": "smart event planning"
+    },
+    "techIntro": {
+      "heading": "Why Event Weave?",
+      "body": "Event Weave is more than just a scheduling app. It's an intuitive tool..."
+    },
+    "features": [
+      {
+        "title": "Create Schedules",
+        "icon": "calendar",
+        "text": "Add events in just a few clicks..."
+      },
+      {
+        "title": "Convenient Tags",
+        "icon": "tag",
+        "text": "Assign tags to events..."
+      },
+      {
+        "title": "Edit Schedules",
+        "icon": "edit",
+        "text": "Want to change details..."
+      },
+      {
+        "title": "User Profile",
+        "icon": "user",
+        "text": "All your schedules are available..."
+      }
+    ],
+    "steps": [
+      {
+        "number": 1,
+        "title": "Create a New Schedule",
+        "text": "Simply choose a date..."
+      },
+      {
+        "number": 2,
+        "title": "Add Events and Tags",
+        "text": "Label the type of event..."
+      },
+      {
+        "number": 3,
+        "title": "View and Edit",
+        "text": "Go back to your profile..."
+      }
+    ],
+    "reviews": [
+      {
+        "author": "Marina K.",
+        "text": "Event Weave is magic! I finally don't get lost..."
+      },
+      {
+        "author": "Alexey P.",
+        "text": "Tags are a killer feature..."
+      },
+      {
+        "author": "Diana L.",
+        "text": "Beautiful, intuitive, and most importantly — fast..."
+      }
+    ],
+    "cta": {
+      "buttonText": "Get Started",
+      "description": "Try Event Weave today..."
+    }
+  }
+}
