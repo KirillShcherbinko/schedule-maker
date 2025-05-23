@@ -3,7 +3,7 @@ import { SettingsMenu } from './ui/settings-menu/SettingsMenu';
 
 export const Header = () => {
   return (
-    <div className='flex justify-between fixed top-0 p-2 w-1/1 max-w-[1280px]'>
+    <div className='flex justify-between fixed top-0 p-2 w-1/1 max-w-[1280px] pl-10 pr-10'>
       <img className='w-[150px]' src={Logo} alt='logo' />
       <SettingsMenu />
     </div>

@@ -1,9 +1,8 @@
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem } from '@/shared/ui/dropdown-menu';
-import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/shared/ui/DropdownMenu';
 import { useTranslation } from 'react-i18next';
-import { LanguageSwitcher } from '../language-switcher/LanguageSwitcher';
-import { ThemeSwitcher } from '../theme-switcher/ThemeSwitcher';
-import { Button } from '@/shared/ui/button';
+import { LanguageSelector } from '../language-selector/LanguageSelector';
+import { ThemeSelector } from '../theme-selector/ThemeSelector';
+import { Button } from '@/shared/ui/Button';
 
 export const SettingsMenu = () => {
   const { t } = useTranslation();
@@ -11,15 +10,11 @@ export const SettingsMenu = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Button>{t('header.settings.title', { ns: 'common' })}</Button>
+        <Button size="lg">{t('header.settings.title', { ns: 'common' })}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuItem>
-          <LanguageSwitcher />
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <ThemeSwitcher />
-        </DropdownMenuItem>
+        <LanguageSelector />
+        <ThemeSelector />
       </DropdownMenuContent>
     </DropdownMenu>
   );

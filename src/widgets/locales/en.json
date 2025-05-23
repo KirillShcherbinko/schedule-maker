@@ -2,9 +2,13 @@
   "header": {
     "settings": {
       "title": "Settings",
-      "language-switcher": {
+      "language-selector": {
         "russian": "Russian",
         "english": "English"
+      },
+      "theme-selector": {
+        "light": "Light",
+        "dark": "Dark"
       }
     }
   }

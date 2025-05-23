@@ -2,11 +2,11 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { LOCAL_STORAGE_THEME_KEY, ThemeContext, type TTheme } from '../config/ThemeContext';
 
 
-type TThemeProviderProps = {
+type ThemeProviderProps = {
   children: ReactNode;
 };
 
-export const ThemeProvider = ({ children }: TThemeProviderProps) => {
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const defaultTheme: TTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as TTheme) || 'light';
   const [theme, setTheme] = useState<TTheme>(defaultTheme);
 
