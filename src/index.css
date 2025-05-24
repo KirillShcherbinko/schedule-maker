@@ -18,6 +18,8 @@
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
 
+  --color-hover: var(--hover);
+
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
 
@@ -86,6 +88,8 @@
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
 
+  --hover: oklch(0.174 0.0069 3); 
+
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
 
@@ -148,9 +152,11 @@
 
   --header: oklch(0.28 0.04 300);
   --header-foreground: oklch(0.92 0.01 290);
-
+  
   --card: oklch(0.3 0.07 305);
   --card-foreground: var(--foreground);
+
+  --hover: oklch(0.8758 0.0069 3);
 
   --popover: oklch(0.33 0.06 305);
   --popover-foreground: var(--foreground);
