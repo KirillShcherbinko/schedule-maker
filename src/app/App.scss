@@ -13,8 +13,8 @@ body {
   font-family:'Inter', Arial, sans-serif;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 480px) {
   #root {
-    padding: 2em 5px;
+    padding: 1.5em 0;
   }
 }

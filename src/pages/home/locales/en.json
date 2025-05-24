@@ -6,7 +6,12 @@
     },
     "techIntro": {
       "heading": "Why Event Weave?",
-      "body": "Event Weave is more than just a scheduling app. It's an intuitive tool..."
+      "body": "Event Weave isn’t just a scheduling app. It’s an intuitive tool that helps you weave your tasks, meetings, and events into one clear, cohesive, and beautiful schedule. We believe planning should be simple, flexible, and visual — without unnecessary confusion or clutter. Our solution: tags and customizable scheduling.",
+      "footer": {
+        "tag1": "Clear scheduling",
+        "tag2": "Event filtering",
+        "tag3": "Intuitive design"
+      }
     },
     "features": [
       {

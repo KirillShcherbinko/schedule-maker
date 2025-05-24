@@ -1,0 +1,1 @@
+export { TechIntro } from './TechIntro';

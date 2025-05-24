@@ -8,29 +8,43 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-header: var(--header);
+  --color-header-foreground: var(--header-foreground);
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+
   --color-destructive: var(--destructive);
   --color-border: var(--border);
   --color-input: var(--input);
+
   --color-ring: var(--ring);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -39,34 +53,66 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
   --color-block-primary: var(--block-primary);
+
+  --color-badge-sky: var(--badge-sky);
+  --color-badge-grass: var(--badge-grass);
+  --color-badge-lemon: var(--badge-lemon);
+  --color-badge-peach: var(--badge-peach);
+  --color-badge-lavender: var(--badge-lavender);
+  --color-badge-mint: var(--badge-mint);
+  --color-badge-rose: var(--badge-rose);
+  --color-badge-sand: var(--badge-sand);
+  --color-badge-ice: var(--badge-ice);
+  --color-badge-plum: var(--badge-plum);
+  --color-badge-ocean: var(--badge-ocean);
+  --color-badge-moss: var(--badge-moss);
+  --color-badge-amber: var(--badge-amber);
+  --color-badge-coral: var(--badge-coral);
+  --color-badge-jade: var(--badge-jade);
+  --color-badge-blush: var(--badge-blush);
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.98 0 0);
+
+  --background: oklch(0.97 0 0);
   --foreground: oklch(0.12 0 0);
+
+  --header: oklch(0.985 0 0);
+  --header-foreground: oklch(0.145 0 0);
+
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
+
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
+
   --primary: oklch(0.5083 0.2188 276);
   --primary-foreground: oklch(0.985 0 0);
+
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
+
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
+
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
+
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
+
   --ring: oklch(0.708 0 0);
+
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -75,12 +121,34 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
   --block-primary: oklch(0.9491 0 0);
+
+  --badge-sky: oklch(0.88 0.08 225);
+  --badge-grass: oklch(0.85 0.09 135);
+  --badge-lemon: oklch(0.92 0.12 100);
+  --badge-peach: oklch(0.93 0.09 35);
+  --badge-lavender: oklch(0.86 0.08 270);
+  --badge-mint: oklch(0.87 0.1 160);
+  --badge-rose: oklch(0.9 0.1 5);
+  --badge-sand: oklch(0.91 0.06 70);
+  --badge-ice: oklch(0.89 0.07 205);
+  --badge-plum: oklch(0.82 0.1 300);
+  --badge-ocean: oklch(0.83 0.12 240);
+  --badge-moss: oklch(0.84 0.11 125);
+  --badge-amber: oklch(0.93 0.1 70);
+  --badge-coral: oklch(0.91 0.12 25);
+  --badge-jade: oklch(0.87 0.1 175);
+  --badge-blush: oklch(0.9 0.08 350);
 }
 
 .dark {
   --background: oklch(0.2451 0.0527 301.29);
   --foreground: oklch(0.92 0.01 290);
+
+  --header: oklch(0.28 0.04 300);
+  --header-foreground: oklch(0.92 0.01 290);
+
   --card: oklch(0.3 0.07 305);
   --card-foreground: var(--foreground);
 
@@ -119,7 +187,25 @@
   --sidebar-accent-foreground: var(--accent-foreground);
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
+
   --block-primary: oklch(0.35 0.05 301.29);
+
+  --badge-sky: oklch(0.6 0.12 220);
+  --badge-grass: oklch(0.55 0.14 130);
+  --badge-lemon: oklch(0.65 0.15 95);
+  --badge-peach: oklch(0.68 0.13 30);
+  --badge-lavender: oklch(0.58 0.14 265);
+  --badge-mint: oklch(0.62 0.12 155);
+  --badge-rose: oklch(0.65 0.15 0);
+  --badge-sand: oklch(0.7 0.1 65);
+  --badge-ice: oklch(0.63 0.13 200);
+  --badge-plum: oklch(0.58 0.16 295);
+  --badge-ocean: oklch(0.55 0.18 235);
+  --badge-moss: oklch(0.57 0.17 120);
+  --badge-amber: oklch(0.7 0.16 75);
+  --badge-coral: oklch(0.68 0.18 20);
+  --badge-jade: oklch(0.55 0.18 170);
+  --badge-blush: oklch(0.67 0.14 345);
 }
 
 @layer base {
