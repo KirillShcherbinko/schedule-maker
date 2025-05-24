@@ -13,26 +13,26 @@
         "tag3": "Intuitive design"
       }
     },
-    "features": [
+    "mainFeatures": [
       {
         "title": "Create Schedules",
         "icon": "calendar",
-        "text": "Add events in just a few clicks..."
+        "text": "Add events in just a couple of clicks, specifying date, time, and description."
       },
       {
         "title": "Convenient Tags",
         "icon": "tag",
-        "text": "Assign tags to events..."
+        "text": "Assign tags to events to filter them by category (e.g., “work”, “leisure”, “meetings”, etc.). This eliminates confusion and makes browsing lightning-fast."
       },
       {
         "title": "Edit Schedules",
         "icon": "edit",
-        "text": "Want to change details..."
+        "text": "Schedule editing – Want to change event details or tags? Just go to your profile and update anything, anytime."
       },
       {
         "title": "User Profile",
         "icon": "user",
-        "text": "All your schedules are available..."
+        "text": "All your schedules in one place. Access and manage them wherever you are."
       }
     ],
     "steps": [

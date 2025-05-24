@@ -1,14 +1,16 @@
 import { DropdownSelector } from '@/shared/ui/DropdownSelector';
 import { useTranslation } from 'react-i18next';
 
+const BASE_LINK = 'header.settings.language-selector';
+
 export const LanguageSelector = () => {
   const { t, i18n } = useTranslation();
 
   const currentLang = i18n.language;
 
   const options = [
-    { label: t('header.settings.language-selector.russian'), value: 'ru', isSelected: currentLang === 'ru' },
-    { label: t('header.settings.language-selector.english'), value: 'en', isSelected: currentLang === 'en' },
+    { label: t(`${BASE_LINK}.russian`), value: 'ru', isSelected: currentLang === 'ru' },
+    { label: t(`${BASE_LINK}.english`), value: 'en', isSelected: currentLang === 'en' },
   ];
 
   const currentLabel = options.find((opt) => opt.value === currentLang)?.label ?? '';

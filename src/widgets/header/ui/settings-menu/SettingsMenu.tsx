@@ -10,7 +10,7 @@ export const SettingsMenu = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Button className='w-[75px] sm:w-[100px]'>{t('header.settings.title', { ns: 'common' })}</Button>
+        <Button className="w-[75px] sm:w-[100px]">{t('header.settings.title')}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <LanguageSelector />

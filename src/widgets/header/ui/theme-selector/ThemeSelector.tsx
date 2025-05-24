@@ -7,15 +7,17 @@ type TThemeOptions = {
   label: string;
   value: TTheme;
   isSelected?: boolean;
-}
+};
+
+const BASE_LINK = 'header.settings.theme-selector';
 
 export const ThemeSelector = () => {
   const { t } = useTranslation();
   const { theme, selectTheme } = useTheme();
 
   const options = [
-    { label: t('header.settings.theme-selector.light'), value: 'light', isSelected: theme === 'light' },
-    { label: t('header.settings.theme-selector.dark'), value: 'dark', isSelected: theme === 'dark' },
+    { label: t(`${BASE_LINK}.light`), value: 'light', isSelected: theme === 'light' },
+    { label: t(`${BASE_LINK}.dark`), value: 'dark', isSelected: theme === 'dark' },
   ] as TThemeOptions[];
 
   const currentLabel = options.find((opt) => opt.value === theme)?.label ?? '';
