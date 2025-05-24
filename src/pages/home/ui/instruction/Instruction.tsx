@@ -5,7 +5,7 @@ import type { TBadgeColor } from '@/shared/ui/Badge/model/types';
 import { AccordionBadge } from './ui/accordion-badge';
 import { Accordion } from '@/shared/ui/Accordion';
 
-type TBadgeWithTooltip = {
+type TAccrodionBadge = {
   title: string;
   text: string;
 };
@@ -15,7 +15,7 @@ const colors: TBadgeColor[] = ['rose', 'sand', 'lavender'];
 
 export const Instruction = () => {
   const { t } = useTranslation();
-  const steps = t(`${BASE_LINK}.steps`, { returnObjects: true, ns: 'home' }) as TBadgeWithTooltip[];
+  const steps = t(`${BASE_LINK}.steps`, { returnObjects: true, ns: 'home' }) as TAccrodionBadge[];
 
   return (
     <section className="flex flex-col justify-center items-center bg-block-primary p-8 rounded-3xl w-full">

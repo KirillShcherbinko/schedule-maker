@@ -3,6 +3,7 @@ import { Welcome } from './welcome';
 import { TechIntro } from './tech-intro';
 import { MainFeatures } from './main-features';
 import { Instruction } from './instruction';
+import { Comments } from './comments';
 
 export const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ export const HomePage = () => {
       <TechIntro />
       <MainFeatures />
       <Instruction />
+      <Comments />
     </div>
   );
 };
