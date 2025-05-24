@@ -10,7 +10,7 @@ const BASE_LINK = 'home.techIntro';
 export const TechIntro = () => {
   const { t } = useTranslation();
 
-  const MotionCard = motion(Card);
+  const MotionCard = motion.create(Card);
 
   const badges: TBadge[] = [
     { title: t(`${BASE_LINK}.footer.tag1`, BASE_NAMESPACE), color: 'lavender' },

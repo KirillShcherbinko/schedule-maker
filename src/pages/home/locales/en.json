@@ -35,23 +35,23 @@
         "text": "All your schedules in one place. Access and manage them wherever you are."
       }
     ],
-    "steps": [
-      {
-        "number": 1,
-        "title": "Create a New Schedule",
-        "text": "Simply choose a date..."
-      },
-      {
-        "number": 2,
-        "title": "Add Events and Tags",
-        "text": "Label the type of event..."
-      },
-      {
-        "number": 3,
-        "title": "View and Edit",
-        "text": "Go back to your profile..."
-      }
-    ],
+    "instruction": {
+      "title": "How to start creating schedules?",
+      "steps": [
+        {
+          "title": "Create a New Schedule",
+          "text": "Select a date and start adding events."
+        },
+        {
+          "title": "Add Events and Tags",
+          "text": "Specify the type of event and add a tag to make it easier to find later."
+        },
+        {
+          "title": "View and Edit",
+          "text": "Go to your profile to adjust the schedule, see what’s planned, or filter events by tags."
+        }
+      ]
+    },
     "reviews": [
       {
         "author": "Marina K.",

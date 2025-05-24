@@ -1,4 +1,4 @@
-import Style from'./MainFeatures.module.scss';
+import Style from './MainFeatures.module.scss';
 
 import CalendarImage from './assets/calendar.png';
 import TagImage from './assets/tag.png';
@@ -22,12 +22,12 @@ export const MainFeatures = () => {
   const mainFeatures = t(BASE_LINK, { returnObjects: true, ns: 'home' }) as TFeature[];
 
   return (
-    <div className={Style.MainFeatures}>
+    <section className={Style.MainFeatures}>
       {mainFeatures.map((feature, index) => (
         <div key={feature.title}>
           <FeatureCard imageSrc={images[index]} imageAlt={feature.icon} title={feature.title} text={feature.text} />
         </div>
       ))}
-    </div>
+    </section>
   );
 };

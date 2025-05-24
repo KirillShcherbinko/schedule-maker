@@ -2,6 +2,7 @@ import { Header } from '@/widgets/header/Header';
 import { Welcome } from './welcome';
 import { TechIntro } from './tech-intro';
 import { MainFeatures } from './main-features';
+import { Instruction } from './instruction';
 
 export const HomePage = () => {
   return (
@@ -10,6 +11,7 @@ export const HomePage = () => {
       <Welcome />
       <TechIntro />
       <MainFeatures />
+      <Instruction />
     </div>
   );
 };
