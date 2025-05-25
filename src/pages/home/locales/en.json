@@ -52,26 +52,10 @@
         }
       ]
     },
-    "comments": {
-      "title": "Our fans",
-      "reviews": [
-        {
-          "author": "Larry P.",
-          "text": "Event Weave is magic! I finally don’t get lost in my own schedule anymore!"
-        },
-        {
-          "author": "Bill G.",
-          "text": "Tags are a game-changer. I have labels for every type of event now and everything’s perfectly organized."
-        },
-        {
-          "author": "Elon M.",
-          "text": "Clean, clear, and fast. I love apps like this."
-        }
-      ]
-    },
-    "cta": {
-      "buttonText": "Get Started",
-      "description": "Try Event Weave today..."
+    "startNow": {
+      "title": "Join us!",
+      "description": "Try Event Weave today and feel how easy and enjoyable time management can be. Plan smarter, simplify your day, and live freely — we’re here to help you every step of the way.",
+      "buttonText": "Start now"
     }
   }
 }
