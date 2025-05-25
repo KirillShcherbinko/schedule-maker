@@ -4,6 +4,7 @@ import { TechIntro } from './tech-intro';
 import { MainFeatures } from './main-features';
 import { Instruction } from './instruction';
 import { StartNow } from './start-now';
+import { Footer } from '@/widgets/footer';
 
 export const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ export const HomePage = () => {
       <MainFeatures />
       <Instruction />
       <StartNow />
+      <Footer />
     </div>
   );
 };
