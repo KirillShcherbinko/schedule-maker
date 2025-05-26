@@ -1,5 +1,6 @@
 import { AuthLayout } from '@/pages/auth/ui/auth-layout/AuthLayout';
 import { HomePage } from '@/pages/home';
+import { Schedule } from '@/pages/schedule';
 import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/schedule/:id',
-    element: <div>edit schedule</div>,
+    element: <Schedule />,
   },
   {
     path: '*',
