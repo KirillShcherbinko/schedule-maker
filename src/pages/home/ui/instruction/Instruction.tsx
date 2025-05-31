@@ -24,7 +24,7 @@ export const Instruction = () => {
         <img className="w-lg" src={SchedulingGuy} alt="scheduling-guy" />
         <Accordion type="multiple" className="flex flex-col gap-5 justify-center w-full">
           {steps.map((step, index) => (
-            <AccordionBadge badge={{ title: step.title, color: colors[index] }} content={step.text} />
+            <AccordionBadge key={index} badge={{ title: step.title, color: colors[index] }} content={step.text} />
           ))}
         </Accordion>
       </div>

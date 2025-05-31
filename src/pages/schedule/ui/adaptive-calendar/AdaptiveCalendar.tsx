@@ -1,4 +1,4 @@
-import { useWindowWidth } from '@/shared/lib/useWindowWidth';
+import { useWindowWidth } from '@/shared/lib/hooks/useWindowWidth';
 import { Calendar } from '@/shared/ui/Calendar';
 import { currentData } from '../../model/atoms';
 import { useAtom } from 'jotai';
@@ -19,9 +19,9 @@ export const AdaptiveCalendar = () => {
   };
 
   return (
-    <div className="pt-10">
+    <div className="p-0">
       {isBreakingWidth ? (
-        <Calendar mode="single" selected={date} onSelect={handleSelectedDate} />
+        <Calendar mode="single" selected={date} onSelect={handleSelectedDate} initialFocus />
       ) : (
         <Popover>
           <PopoverTrigger asChild>

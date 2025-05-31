@@ -11,4 +11,12 @@
   @media screen and (max-width: 640px) {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  @media screen and (max-width: 425px) {
+    padding: 0 10px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
 }

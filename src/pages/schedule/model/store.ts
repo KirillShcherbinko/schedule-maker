@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import type { TEventStoreAction, TEventStoreState } from './types';
 
-export const useEvents = create<TEventStoreState & TEventStoreAction>((set, get) => ({
+export const useEventsStore = create<TEventStoreState & TEventStoreAction>((set, get) => ({
   events: [],
   addEvent: (event) =>
     set((state) => ({

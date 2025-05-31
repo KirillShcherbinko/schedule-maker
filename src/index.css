@@ -106,8 +106,8 @@
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
 
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent: oklch(0.93 0 280);
+  --accent-foreground: oklch(0.2 0.02 280);
 
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
@@ -151,73 +151,73 @@
 }
 
 .dark {
-  --background: oklch(0.2451 0.0527 301.29);
-  --foreground: oklch(0.92 0.01 290);
+  --background: oklch(0.13 0.03 285);
+  --foreground: oklch(0.92 0.01 60);
 
-  --header: oklch(0.28 0.04 300);
-  --header-foreground: oklch(0.92 0.01 290);
+  --header: oklch(0.18 0.04 285);
+  --header-foreground: oklch(0.92 0.01 60);
 
-  --footer: oklch(0.6696 0.145 60.99);
-  
-  --card: oklch(0.3 0.07 305);
-  --card-foreground: var(--foreground);
+  --footer: oklch(0.6 0.1 35);
 
-  --hover: oklch(0.8758 0.0069 3);
+  --card: oklch(0.22 0.04 285);
+  --card-foreground: oklch(0.92 0.01 60);
 
-  --popover: oklch(0.33 0.06 305);
-  --popover-foreground: var(--foreground);
+  --hover: oklch(0.88 0.01 60);
 
-  --primary: oklch(0.6 0.1 290);
-  --primary-foreground: oklch(0.95 0.02 295);
+  --popover: oklch(0.24 0.04 285);
+  --popover-foreground: oklch(0.92 0.01 60);
 
-  --secondary: oklch(0.45 0.05 290);
-  --secondary-foreground: var(--foreground);
+  --primary: oklch(0.65 0.18 35);
+  --primary-foreground: oklch(0.1 0.02 285);
 
-  --muted: oklch(0.4 0.03 300);
-  --muted-foreground: oklch(0.7 0.02 295);
+  --secondary: oklch(0.28 0.05 285);
+  --secondary-foreground: oklch(0.92 0.01 60);
 
-  --accent: oklch(0.55 0.07 280);
-  --accent-foreground: var(--foreground);
+  --muted: oklch(0.25 0.04 285);
+  --muted-foreground: oklch(0.7 0.02 270);
 
-  --destructive: oklch(0.55 0.18 25);
-  --border: oklch(0.4 0.02 300 / 0.25);
-  --input: oklch(0.35 0.04 300 / 0.2);
+  --accent: oklch(0.36 0.07 285);
+  --accent-foreground: oklch(0.92 0.01 60);
 
-  --ring: oklch(0.4 0.1 290);
+  --destructive: oklch(0.6 0.2 15);
+  --border: oklch(0.3 0.04 285);
+  --input: oklch(0.25 0.04 285);
 
-  --chart-1: oklch(0.6 0.25 260);
-  --chart-2: oklch(0.6 0.2 160);
-  --chart-3: oklch(0.6 0.22 70);
-  --chart-4: oklch(0.5 0.25 300);
-  --chart-5: oklch(0.55 0.25 30);
+  --ring: oklch(0.7 0.16 35);
 
-  --sidebar: var(--card);
-  --sidebar-foreground: var(--card-foreground);
-  --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: var(--primary-foreground);
-  --sidebar-accent: var(--accent);
-  --sidebar-accent-foreground: var(--accent-foreground);
-  --sidebar-border: var(--border);
-  --sidebar-ring: var(--ring);
+  --chart-1: oklch(0.7 0.2 25);
+  --chart-2: oklch(0.65 0.18 285);
+  --chart-3: oklch(0.6 0.16 320);
+  --chart-4: oklch(0.75 0.18 40);
+  --chart-5: oklch(0.68 0.16 300);
 
-  --block-primary: oklch(0.35 0.05 301.29);
+  --sidebar: oklch(0.18 0.03 285);
+  --sidebar-foreground: oklch(0.92 0.01 60);
+  --sidebar-primary: oklch(0.65 0.18 35);
+  --sidebar-primary-foreground: oklch(0.1 0.02 285);
+  --sidebar-accent: oklch(0.32 0.06 285);
+  --sidebar-accent-foreground: oklch(0.92 0.01 60);
+  --sidebar-border: oklch(0.3 0.04 285);
+  --sidebar-ring: oklch(0.7 0.16 35);
 
-  --badge-sky: oklch(0.6 0.12 220);
-  --badge-grass: oklch(0.55 0.14 130);
-  --badge-lemon: oklch(0.65 0.15 95);
-  --badge-peach: oklch(0.68 0.13 30);
-  --badge-lavender: oklch(0.58 0.14 265);
-  --badge-mint: oklch(0.62 0.12 155);
-  --badge-rose: oklch(0.65 0.15 0);
-  --badge-sand: oklch(0.7 0.1 65);
-  --badge-ice: oklch(0.63 0.13 200);
-  --badge-plum: oklch(0.58 0.16 295);
-  --badge-ocean: oklch(0.55 0.18 235);
-  --badge-moss: oklch(0.57 0.17 120);
-  --badge-amber: oklch(0.7 0.16 75);
-  --badge-coral: oklch(0.68 0.18 20);
-  --badge-jade: oklch(0.55 0.18 170);
-  --badge-blush: oklch(0.67 0.14 345);
+  --block-primary: oklch(0.17 0.035 285);
+
+  --badge-sky: oklch(0.5 0.15 240);
+  --badge-grass: oklch(0.48 0.16 140);
+  --badge-lemon: oklch(0.6 0.18 80);
+  --badge-peach: oklch(0.62 0.16 35);
+  --badge-lavender: oklch(0.52 0.16 285);
+  --badge-mint: oklch(0.55 0.14 165);
+  --badge-rose: oklch(0.6 0.18 10);
+  --badge-sand: oklch(0.65 0.12 55);
+  --badge-ice: oklch(0.58 0.16 220);
+  --badge-plum: oklch(0.5 0.18 310);
+  --badge-ocean: oklch(0.48 0.2 250);
+  --badge-moss: oklch(0.5 0.18 130);
+  --badge-amber: oklch(0.68 0.18 65);
+  --badge-coral: oklch(0.62 0.2 20);
+  --badge-jade: oklch(0.52 0.16 170);
+  --badge-blush: oklch(0.6 0.16 350);
 }
 
 @layer base {

@@ -24,9 +24,9 @@ export const MainFeatures = () => {
   return (
     <section className={Style.MainFeatures}>
       {mainFeatures.map((feature, index) => (
-        <div key={feature.title}>
+        <ul key={feature.title}>
           <FeatureCard imageSrc={images[index]} imageAlt={feature.icon} title={feature.title} text={feature.text} />
-        </div>
+        </ul>
       ))}
     </section>
   );
