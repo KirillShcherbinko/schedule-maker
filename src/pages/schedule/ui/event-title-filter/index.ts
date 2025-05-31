@@ -1,0 +1,1 @@
+export { EventTitleFilter } from './EventTitleFilter';

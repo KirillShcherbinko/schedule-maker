@@ -7,7 +7,7 @@ import { Button } from '@/shared/ui/Button';
 import { CalendarIcon } from 'lucide-react';
 import { format } from 'date-fns';
 
-const BREAKING_WIDTH = 768;
+const BREAKING_WIDTH = 748;
 
 export const AdaptiveCalendar = () => {
   const width = useWindowWidth();
@@ -19,13 +19,13 @@ export const AdaptiveCalendar = () => {
   };
 
   return (
-    <div className="p-0">
+    <div className="p-0 flex flex-col">
       {isBreakingWidth ? (
         <Calendar mode="single" selected={date} onSelect={handleSelectedDate} initialFocus />
       ) : (
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant={'outline'} className="max-w-[240px] w-md justify-center text-center font-normal">
+            <Button className="w-full self-center justify-center text-center font-normal p  l-10 pr-10">
               <CalendarIcon />
               {format(date, 'PPP')}
             </Button>

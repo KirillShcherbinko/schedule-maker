@@ -1,4 +1,4 @@
-import { AuthLayout } from '@/pages/auth/ui/auth-layout/AuthLayout';
+import ProtectedRoute from '@/features/auth/ui/ProtectedRoute';
 import { HomePage } from '@/pages/home';
 import { Schedule } from '@/pages/schedule';
 import { createBrowserRouter } from 'react-router-dom';
@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/auth',
-    element: <AuthLayout />,
+    element: <ProtectedRoute requireAuth={false} />,
     children: [
       { index: true, element: <div>not found</div> },
       { path: 'login', element: <div>login page</div> },
@@ -20,8 +20,8 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: '/profile',
-    element: <div>profile</div>,
+    element: <ProtectedRoute requireAuth={true} />,
+    children: [{ path: 'profile', element: <div>profile</div> }],
   },
   {
     path: '/schedule/:id',

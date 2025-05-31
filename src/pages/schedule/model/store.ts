@@ -1,8 +1,12 @@
 import { create } from 'zustand';
-import type { TEventStoreAction, TEventStoreState } from './types';
+import type { TEventStoreAction, TEventStoreState, TTagStoreAction, TTagStoreState } from './types';
+import { data } from './consts';
 
-export const useEventsStore = create<TEventStoreState & TEventStoreAction>((set, get) => ({
-  events: [],
+export const useEventsStore = create<TEventStoreState & TEventStoreAction>((set) => ({
+  events: data.events,
+  filteredEvents: data.events,
+  setEvents: (events) => set({ events }),
+  setFilteredEvents: (filteredEvents) => set({ filteredEvents }),
   addEvent: (event) =>
     set((state) => ({
       events: [...state.events, event],
@@ -15,6 +19,21 @@ export const useEventsStore = create<TEventStoreState & TEventStoreAction>((set,
     set((state) => ({
       events: state.events.map((event) => (event.id === eventId ? { ...event, ...eventData } : event)),
     })),
-  getEventsByDate: (eventDate: Date) =>
-    get().events.filter((event) => event.startTime.toDateString() === eventDate.toDateString()),
+}));
+
+export const useTagStore = create<TTagStoreState & TTagStoreAction>((set) => ({
+  tags: data.tags,
+  setTags: (tags) => set({ tags }),
+  addTag: (tag) =>
+    set((state) => ({
+      tags: [...state.tags, tag],
+    })),
+  removeTag: (tagId: number) =>
+    set((state) => ({
+      tags: state.tags.filter((tag) => tag.id !== tagId),
+    })),
+  updateTag: (tagId, tagData) =>
+    set((state) => ({
+      tags: state.tags.map((tag) => (tag.id === tagId ? { ...tag, ...tagData } : tag)),
+    })),
 }));

@@ -10,7 +10,6 @@ export type TBadgeColor =
   | 'ice'
   | 'plum'
   | 'ocean'
-  | 'rose'
   | 'moss'
   | 'amber'
   | 'coral'

@@ -76,6 +76,23 @@
   --color-badge-coral: var(--badge-coral);
   --color-badge-jade: var(--badge-jade);
   --color-badge-blush: var(--badge-blush);
+
+  --border-badge-sky: var(--badge-sky);
+  --border-badge-grass: var(--badge-grass);
+  --border-badge-lemon: var(--badge-lemon);
+  --border-badge-peach: var(--badge-peach);
+  --border-badge-lavender: var(--badge-lavender);
+  --border-badge-mint: var(--badge-mint);
+  --border-badge-rose: var(--badge-rose);
+  --border-badge-sand: var(--badge-sand);
+  --border-badge-ice: var(--badge-ice);
+  --border-badge-plum: var(--badge-plum);
+  --border-badge-ocean: var(--badge-ocean);
+  --border-badge-moss: var(--badge-moss);
+  --border-badge-amber: var(--badge-amber);
+  --border-badge-coral: var(--badge-coral);
+  --border-badge-jade: var(--badge-jade);
+  --border-badge-blush: var(--badge-blush);
 }
 
 :root {
@@ -222,7 +239,7 @@
 
 @layer base {
   * {
-    @apply border-none outline-none ring-0 focus:ring-0 focus:outline-none focus:border-none;
+    @apply outline-none ring-0 focus:ring-0 focus:outline-none focus:border-none;
   }
   body {
     @apply bg-background text-foreground transition-colors duration-300;
