@@ -2,7 +2,7 @@ import { useWindowWidth } from '@/shared/lib/hooks/useWindowWidth';
 import { Calendar } from '@/shared/ui/Calendar';
 import { currentData } from '../../model/atoms';
 import { useAtom } from 'jotai';
-import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/Popover';
+import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/Popover/popover';
 import { Button } from '@/shared/ui/Button';
 import { CalendarIcon } from 'lucide-react';
 import { format } from 'date-fns';
