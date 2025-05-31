@@ -4,6 +4,7 @@ import { EventList } from './event-list';
 import { EventTitleFilter } from './event-title-filter';
 import { TagsList } from './tags-list';
 import { AddEventButton } from './add-event-button/AddEventButton';
+import { AddEventForm } from './add-event-form';
 
 export const Schedule = () => {
   return (
@@ -20,6 +21,7 @@ export const Schedule = () => {
         </div>
         <AddEventButton />
       </div>
+      <AddEventForm />
     </div>
   );
 };

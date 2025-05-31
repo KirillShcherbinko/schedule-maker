@@ -19,7 +19,7 @@ export const Event = ({ event, onEdit }: EventProps) => {
   const formattedEndTime = format(endTime, 'HH:mm');
   const onDelete = useEventsStore((state) => state.removeEvent);
 
-  const MotionCard = motion.create(Card);
+  const MotionCard = motion(Card);
 
   return (
     <MotionCard

@@ -1,22 +1,14 @@
-import { atom, useAtom } from 'jotai';
+import { useAtom } from 'jotai';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/shared/ui/Dialog';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
-
+import { eventFormOpenAtom } from '../../model/atoms';
 import { useTagStore, useEventsStore } from '../../model/store';
 import type { TEvent, TTag } from '@/shared/model/types';
 
-const eventFormOpenAtom = atom(false);
-
-const addEventFormSchema = z.object({
-  title: z.string().min(1, 'Название обязательно'),
-  tagIds: z.array(z.number()).optional(), // Массив id тегов (может быть пустым)
-});
-
-type AddEventFormValues = z.infer<typeof addEventFormSchema>;
+import { eventFormSchema, type EventFormData } from '@/entities/event/model/schemas'; // ← твой импорт
 
 export const AddEventForm = () => {
   const [open, setOpen] = useAtom(eventFormOpenAtom);
@@ -24,23 +16,29 @@ export const AddEventForm = () => {
   const tags = useTagStore((state) => state.tags);
   const addEvent = useEventsStore((state) => state.addEvent);
 
-  const form = useForm<AddEventFormValues>({
-    resolver: zodResolver(addEventFormSchema),
+  const form = useForm<EventFormData>({
+    resolver: zodResolver(eventFormSchema),
     defaultValues: {
       title: '',
+      date: '',
+      startTime: '',
+      endTime: '',
       tagIds: [],
     },
   });
 
-  const handleSubmit = (values: AddEventFormValues) => {
-    const selectedTags: TTag[] = tags.filter((tag) => values.tagIds?.includes(tag.id)); // фильтруем выбранные теги
+  const handleSubmit = (values: EventFormData) => {
+    const selectedTags: TTag[] = tags.filter((tag) => values.tagIds?.includes(tag.id));
+
+    const startDateTime = new Date(`${values.date}T${values.startTime}`);
+    const endDateTime = new Date(`${values.date}T${values.endTime}`);
 
     const newEvent: TEvent = {
-      id: Date.now(), // или по-другому генерировать id
-      scheduleId: 1, // Здесь можно передавать из пропсов или контекста
+      id: Date.now(),
+      scheduleId: 1,
       title: values.title,
-      startTime: new Date(), // Время по умолчанию
-      endTime: new Date(), // Время по умолчанию
+      startTime: startDateTime,
+      endTime: endDateTime,
       tags: selectedTags,
     };
 
@@ -68,33 +66,51 @@ export const AddEventForm = () => {
             </div>
 
             <div>
-              <label>Теги</label>
+              <label>Дата</label>
+              <Input type="date" {...form.register('date')} />
+              {form.formState.errors.date && <p className="text-red-500">{form.formState.errors.date.message}</p>}
+            </div>
+
+            <div>
+              <label>Время начала</label>
+              <Input type="time" {...form.register('startTime')} />
+              {form.formState.errors.startTime && (
+                <p className="text-red-500">{form.formState.errors.startTime.message}</p>
+              )}
+            </div>
+
+            <div>
+              <label>Время окончания</label>
+              <Input type="time" {...form.register('endTime')} />
+              {form.formState.errors.endTime && <p className="text-red-500">{form.formState.errors.endTime.message}</p>}
+            </div>
+
+            <div>
+              <label>Теги (можно выбрать несколько)</label>
               <Controller
                 control={form.control}
                 name="tagIds"
-                render={({ field }) => {
-                  // field.value у нас number[] | undefined — надо конвертировать в string[]
-                  const valueAsStringArray = (field.value ?? []).map(String);
-
-                  return (
-                    <select
-                      {...field}
-                      multiple
-                      className="w-full border rounded p-2"
-                      value={valueAsStringArray}
-                      onChange={(e) => {
-                        const selectedValues = Array.from(e.target.selectedOptions).map((opt) => Number(opt.value));
-                        field.onChange(selectedValues);
-                      }}
-                    >
-                      {tags.map((tag) => (
-                        <option key={tag.id} value={String(tag.id)}>
-                          {tag.title}
-                        </option>
-                      ))}
-                    </select>
-                  );
-                }}
+                render={({ field }) => (
+                  <div className="flex flex-col gap-2">
+                    {tags.map((tag) => (
+                      <label key={tag.id} className="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          value={tag.id}
+                          checked={field.value?.includes(tag.id)}
+                          onChange={(e) => {
+                            const isChecked = e.target.checked;
+                            const id = tag.id;
+                            const currentValue = field.value || [];
+                            const newValue = isChecked ? [...currentValue, id] : currentValue.filter((v) => v !== id);
+                            field.onChange(newValue);
+                          }}
+                        />
+                        {tag.title}
+                      </label>
+                    ))}
+                  </div>
+                )}
               />
             </div>
 
