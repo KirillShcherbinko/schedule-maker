@@ -8,7 +8,7 @@ import { eventFormOpenAtom } from '../../model/atoms';
 import { useTagStore, useEventsStore } from '../../model/store';
 import type { TEvent, TTag } from '@/shared/model/types';
 
-import { eventFormSchema, type EventFormData } from '@/entities/event/model/schemas'; // ← твой импорт
+import { eventFormSchema, type EventFormData } from '@/entities/event/model/schemas'; // ← your import
 
 export const AddEventForm = () => {
   const [open, setOpen] = useAtom(eventFormOpenAtom);
@@ -50,29 +50,27 @@ export const AddEventForm = () => {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Добавить событие</Button>
-
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Новое событие</DialogTitle>
+            <DialogTitle>New Event</DialogTitle>
           </DialogHeader>
 
           <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
             <div>
-              <label>Название события</label>
+              <label>Event Title</label>
               <Input {...form.register('title')} />
               {form.formState.errors.title && <p className="text-red-500">{form.formState.errors.title.message}</p>}
             </div>
 
             <div>
-              <label>Дата</label>
+              <label>Date</label>
               <Input type="date" {...form.register('date')} />
               {form.formState.errors.date && <p className="text-red-500">{form.formState.errors.date.message}</p>}
             </div>
 
             <div>
-              <label>Время начала</label>
+              <label>Start Time</label>
               <Input type="time" {...form.register('startTime')} />
               {form.formState.errors.startTime && (
                 <p className="text-red-500">{form.formState.errors.startTime.message}</p>
@@ -80,13 +78,13 @@ export const AddEventForm = () => {
             </div>
 
             <div>
-              <label>Время окончания</label>
+              <label>End Time</label>
               <Input type="time" {...form.register('endTime')} />
               {form.formState.errors.endTime && <p className="text-red-500">{form.formState.errors.endTime.message}</p>}
             </div>
 
             <div>
-              <label>Теги (можно выбрать несколько)</label>
+              <label>Tags (multiple selection allowed)</label>
               <Controller
                 control={form.control}
                 name="tagIds"
@@ -114,7 +112,7 @@ export const AddEventForm = () => {
               />
             </div>
 
-            <Button type="submit">Создать</Button>
+            <Button type="submit">Create</Button>
           </form>
         </DialogContent>
       </Dialog>
