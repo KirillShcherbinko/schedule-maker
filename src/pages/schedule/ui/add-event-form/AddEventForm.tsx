@@ -4,17 +4,17 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/shared/ui/Dialog';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
-import { eventFormOpenAtom } from '../../model/atoms';
-import { useTagStore, useEventsStore } from '../../model/store';
+import { isFormOpenAtom } from '../../model/atoms';
+import { useTagStore, useEventStore } from '../../model/store';
 import type { TEvent, TTag } from '@/shared/model/types';
 
-import { eventFormSchema, type EventFormData } from '@/entities/event/model/schemas'; // ← your import
+import { eventFormSchema, type EventFormData } from '@/entities/event/model/schemas';
 
 export const AddEventForm = () => {
-  const [open, setOpen] = useAtom(eventFormOpenAtom);
+  const [open, setOpen] = useAtom(isFormOpenAtom);
 
   const tags = useTagStore((state) => state.tags);
-  const addEvent = useEventsStore((state) => state.addEvent);
+  const addEvent = useEventStore((state) => state.addEvent);
 
   const form = useForm<EventFormData>({
     resolver: zodResolver(eventFormSchema),

@@ -1,18 +1,14 @@
 import { FilterByTitle } from '@/features/filter-by-title';
-import { useEventsStore } from '../../model/store';
-import { useShallow } from 'zustand/react/shallow';
+import { eventsAtom, titleFilterAtom } from '../../model/atoms';
+import { useAtom } from 'jotai';
 
 export const EventTitleFilter = () => {
-  const { events, setFilteredEvents } = useEventsStore(
-    useShallow((state) => ({
-      events: state.events,
-      setFilteredEvents: state.setFilteredEvents,
-    })),
-  );
+  const [, setTitle] = useAtom(titleFilterAtom);
+  const [{ events }] = useAtom(eventsAtom);
 
   return (
     <div className="max-w-[500px] w-full self-center md:self-end">
-      <FilterByTitle data={events} onFilterChange={setFilteredEvents} placeholder="Filter by title..." />
+      <FilterByTitle data={events} onFilterChange={setTitle} placeholder="Filter by title..." />
     </div>
   );
 };

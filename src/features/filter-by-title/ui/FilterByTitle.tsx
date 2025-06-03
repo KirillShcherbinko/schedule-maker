@@ -1,39 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import { Input } from '@/shared/ui/Input';
 import { Search } from 'lucide-react';
+import type { TEventsList } from '@/shared/model/types';
 
-type FilterByTitleProps<T> = {
-  data: T[];
-  onFilterChange: (filteredData: T[]) => void;
+type FilterByTitleProps = {
+  data: TEventsList;
+  onFilterChange: (title: string) => void;
   placeholder?: string;
 };
 
-export function FilterByTitle<T extends { title: string }>({
-  data,
-  onFilterChange,
-  placeholder = 'Search events...',
-}: FilterByTitleProps<T>) {
+export function FilterByTitle({ data, onFilterChange, placeholder = 'Search events...' }: FilterByTitleProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
-  useEffect(() => {
-    if (!searchQuery.trim()) {
-      onFilterChange(data);
-    } else {
-      const filteredData = data.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()));
-      onFilterChange(filteredData);
-    }
-  }, [searchQuery, data, onFilterChange]);
+  const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
+    const newSearchQuery = evt.target.value;
+    setSearchQuery(newSearchQuery);
+
+    if (!data) return;
+    onFilterChange(newSearchQuery);
+  };
 
   return (
     <div className="relative">
       <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-      <Input
-        type="text"
-        placeholder={placeholder}
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        className="pl-10"
-      />
+      <Input type="text" placeholder={placeholder} value={searchQuery} onChange={handleChange} className="pl-10" />
     </div>
   );
 }

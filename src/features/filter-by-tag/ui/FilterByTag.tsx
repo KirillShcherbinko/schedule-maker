@@ -7,31 +7,26 @@ import {
   DropdownMenuTrigger,
 } from '@/shared/ui/DropdownMenu';
 import { Button } from '@/shared/ui/Button';
-import type { TTag } from '@/shared/model/types';
-import { useEffect, useState } from 'react';
+import type { TEventsList, TTag } from '@/shared/model/types';
+import { useState } from 'react';
 import { Pencil, Trash2 } from 'lucide-react';
 
-type FilterByTagProps<T> = {
-  data: T[];
+type FilterByTagProps = {
+  data: TEventsList;
   tags: TTag[];
-  onFilterChange: (filteredData: T[]) => void;
+  onFilterChange: (tags: number[]) => void;
 };
 
-export function FilterByTag<T extends { tags: TTag[] }>({ data, tags, onFilterChange }: FilterByTagProps<T>) {
+export const FilterByTag = ({ data, tags, onFilterChange }: FilterByTagProps) => {
   const [selectedTags, setSelectedTags] = useState<number[]>([]);
 
   const handleTagToggle = (tagId: number, checked: boolean) => {
-    setSelectedTags((prev) => (checked ? [...prev, tagId] : prev.filter((id) => id !== tagId)));
-  };
+    const newTags = checked ? [...selectedTags, tagId] : selectedTags.filter((id) => id !== tagId);
+    setSelectedTags(newTags);
 
-  useEffect(() => {
-    if (selectedTags.length === 0) {
-      onFilterChange(data);
-    } else {
-      const filteredData = data.filter((item) => item.tags.some((tag) => selectedTags.includes(tag.id)));
-      onFilterChange(filteredData);
-    }
-  }, [selectedTags, data, onFilterChange]);
+    if (!data) return;
+    onFilterChange(newTags);
+  };
 
   return (
     <DropdownMenu>
@@ -47,9 +42,7 @@ export function FilterByTag<T extends { tags: TTag[] }>({ data, tags, onFilterCh
             className="hover:bg-transparent focus:bg-transparent flex flex-row justify-between"
             checked={selectedTags.includes(tag.id)}
             onSelect={(evt: Event) => evt.preventDefault()}
-            onCheckedChange={(checked: boolean) => {
-              handleTagToggle(tag.id, checked);
-            }}
+            onCheckedChange={(checked: boolean) => handleTagToggle(tag.id, checked)}
           >
             {tag.title}
             <div className="flex gap-1">
@@ -65,4 +58,4 @@ export function FilterByTag<T extends { tags: TTag[] }>({ data, tags, onFilterCh
       </DropdownMenuContent>
     </DropdownMenu>
   );
-}
+};

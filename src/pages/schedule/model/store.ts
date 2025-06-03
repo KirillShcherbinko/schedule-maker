@@ -1,24 +1,30 @@
 import { create } from 'zustand';
 import type { TEventStoreAction, TEventStoreState, TTagStoreAction, TTagStoreState } from './types';
 import { data } from './consts';
+import { groupEventsByDate, addEvent, removeEvent, updateEvent } from '../lib/utils';
 
-export const useEventsStore = create<TEventStoreState & TEventStoreAction>((set) => ({
-  events: data.events,
-  filteredEvents: data.events,
+export const useEventStore = create<TEventStoreState & TEventStoreAction>((set) => ({
+  events: groupEventsByDate(data.events),
+  added: [],
+  removed: [],
+
   setEvents: (events) => set({ events }),
-  setFilteredEvents: (filteredEvents) => set({ filteredEvents }),
+
   addEvent: (event) =>
-    set((state) => ({
-      events: [...state.events, event],
-    })),
-  removeEvent: (eventId) =>
-    set((state) => ({
-      events: state.events.filter((event) => event.id !== eventId),
-    })),
-  updateEvent: (eventId, eventData) =>
-    set((state) => ({
-      events: state.events.map((event) => (event.id === eventId ? { ...event, ...eventData } : event)),
-    })),
+    set((state) => {
+      const { events, added, removed } = addEvent(state.events, event);
+      return { events, added, removed };
+    }),
+  removeEvent: (event) =>
+    set((state) => {
+      const { events, added, removed } = removeEvent(state.events, event);
+      return { events, added, removed };
+    }),
+  updateEvent: (oldEvent, newEvent) =>
+    set((state) => {
+      const { events, added, removed } = updateEvent(state.events, oldEvent, newEvent);
+      return { events, added, removed };
+    }),
 }));
 
 export const useTagStore = create<TTagStoreState & TTagStoreAction>((set) => ({

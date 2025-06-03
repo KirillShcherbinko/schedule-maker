@@ -1,4 +1,4 @@
-import type { TBadgeColor } from "../ui/Badge/model/types";
+import type { TBadgeColor } from '../ui/Badge/model/types';
 
 export type TEvent = {
   id: number;
@@ -7,7 +7,7 @@ export type TEvent = {
   startTime: Date;
   endTime: Date;
   tags: TTag[];
-}
+};
 
 export type TTag = {
   id: number;
@@ -15,4 +15,6 @@ export type TTag = {
   title: string;
   color: TBadgeColor;
   events: TEvent[];
-}
+};
+
+export type TEventsList = Record<string, TEvent[]>;

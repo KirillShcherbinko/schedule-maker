@@ -4,7 +4,7 @@ export type TTheme = 'light' | 'dark';
 
 export type TThemeContext = {
   theme: TTheme;
-  setTheme: (theme: TTheme) => void;
+  handleTheme: (theme: TTheme) => void;
 };
 
 export const ThemeContext = createContext<TThemeContext | null>(null);

@@ -1,25 +1,23 @@
 import type { TEvent } from '@/shared/model/types';
 import { Event } from '@/entities/event/ui';
-import { useEventsStore } from '../../model/store';
-import { useShallow } from 'zustand/react/shallow';
 import { useAtom } from 'jotai';
-import { currentData } from '../../model/atoms';
 import { AnimatePresence } from 'framer-motion';
+import { filteredEventsAtom, selectedDateAtom } from '../../model/atoms';
 
 export const EventList = () => {
-  const [date] = useAtom(currentData);
-  const { filteredEvents } = useEventsStore(
-    useShallow((state) => ({
-      filteredEvents: state.filteredEvents,
-    })),
-  );
+  const [selectedDate] = useAtom(selectedDateAtom);
+  const [filteredEvents] = useAtom(filteredEventsAtom);
 
-  const todayEvents = filteredEvents.filter((event) => event.startTime.toDateString() === date.toDateString());
+  const selectedEvents = filteredEvents[selectedDate.toDateString()];
+
+  if (!selectedEvents || !selectedEvents.length) {
+    return <div>Нет событий</div>;
+  }
 
   return (
-    <div className="flex flex-col gap-4 w-full">
+    <div className="flex flex-col gap-4 w-full overflow-auto h-[600px]">
       <AnimatePresence>
-        {todayEvents.map((event: TEvent) => (
+        {selectedEvents.map((event: TEvent) => (
           <Event key={event.id} event={event} />
         ))}
       </AnimatePresence>

@@ -5,25 +5,25 @@ import { BadgeList } from '@/widgets/badge-list';
 import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import type { TEvent } from '@/shared/model/types';
-import { useEventsStore } from '@/pages/schedule/model/store';
+import { useEventStore } from '@/pages/schedule/model/store';
 
 type EventProps = {
   event: TEvent;
-  onEdit?: (id: number) => void;
 };
 
-export const Event = ({ event, onEdit }: EventProps) => {
-  const { id, title, startTime, endTime, tags } = event;
+export const Event = ({ event }: EventProps) => {
+  const { title, startTime, endTime, tags } = event;
 
   const formattedStartTime = format(startTime, 'HH:mm');
   const formattedEndTime = format(endTime, 'HH:mm');
-  const onDelete = useEventsStore((state) => state.removeEvent);
 
-  const MotionCard = motion(Card);
+  const onDelete = useEventStore((state) => state.removeEvent);
+
+  const MotionCard = motion.create(Card);
 
   return (
     <MotionCard
-      className="max-w-[500px] w-full p-4 self-center md:self-end"
+      className="max-w-[550px] w-full p-4 self-center md:self-end"
       layout
       whileHover={{ translateY: -8 }}
       whileTap={{ translateY: -8 }}
@@ -36,14 +36,14 @@ export const Event = ({ event, onEdit }: EventProps) => {
             {formattedStartTime} - {formattedEndTime}
           </p>
         </div>
-        <div className="flex gap-2">
-          <Button variant="ghost" size="icon" onClick={() => onEdit?.(id)} className="h-8 w-8">
+        <div className="flex gap-1">
+          <Button variant="ghost" size="icon" className="h-8 w-8">
             <Pencil className="h-4 w-4" />
           </Button>
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => onDelete(id)}
+            onClick={() => onDelete(event)}
             className="h-8 w-8 text-destructive hover:text-destructive"
           >
             <Trash2 className="h-4 w-4" />

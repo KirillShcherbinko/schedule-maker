@@ -23,7 +23,13 @@ const customRu: Locale = {
   },
 };
 
-function Calendar({ className, classNames, showOutsideDays = true, ...props }: React.ComponentProps<typeof DayPicker>) {
+function Calendar({
+  className,
+  classNames,
+  showOutsideDays = true,
+  components,
+  ...props
+}: React.ComponentProps<typeof DayPicker>) {
   const { i18n } = useTranslation();
 
   return (
@@ -34,26 +40,26 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: R
       classNames={{
         months: 'flex flex-col sm:flex-row gap-2',
         month: 'flex flex-col gap-4',
-        caption: 'flex justify-center pt-1 relative items-center w-full',
+        caption: 'flex justify-between pt-1 items-center w-full',
         caption_label: 'text-sm sm:text-md md:text-lg lg:text-xl font-medium text-capitalize',
         nav: 'flex items-center gap-1',
         nav_button: cn(buttonVariants({ variant: null }), 'size-10 bg-transparent p-0 opacity-50 hover:opacity-100'),
-        nav_button_previous: 'absolute left-10 sm:left-19 md:left-26 lg:left-40',
-        nav_button_next: 'absolute right-10 sm:right-19 md:right-26 lg:right-40',
-        table: 'w-full border-collapse space-x-1',
-        head_row: 'flex justify-around',
+        nav_button_previous: 'p-0',
+        nav_button_next: 'p-0',
+        table: 'w-full space-x-1',
+        head_row: 'flex justify-between',
         head_cell:
-          'text-muted-foreground rounded-md w-8 font-normal text-sm sm:text-md md:text:lg lg:text-xl text-capitalize',
+          'text-muted-foreground rounded-md w-10 lg:w-14 font-normal text-sm sm:text-md md:text:lg lg:text-xl text-capitalize',
         row: 'flex w-full mt-2 gap-2',
         cell: cn(
-          'relative p-0 text-center lg:text-xl focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-accent [&:has([aria-selected].day-range-end)]:rounded-r-md',
+          'relative p-0 text-center focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-accent [&:has([aria-selected].day-range-end)]:rounded-r-md',
           props.mode === 'range'
             ? '[&:has(>.day-range-end)]:rounded-r-md [&:has(>.day-range-start)]:rounded-l-md first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md'
             : '[&:has([aria-selected])]:rounded-md',
         ),
         day: cn(
           buttonVariants({ variant: 'ghost' }),
-          'size-8 sm:size-12 md:size-14 lg:size-18 p-0 font-normal text-sm sm:text-md md:text-lg lg:text-xl aria-selected:opacity-100 hover:bg-accent hover:text-accent-foreground',
+          'size-8 sm:size-10 lg:size-14 p-0 font-normal text-sm sm:text-md md:text-lg lg:text-xl aria-selected:opacity-100 hover:bg-accent hover:text-accent-foreground',
         ),
         day_range_start: 'day-range-start aria-selected:bg-primary aria-selected:text-primary-foreground',
         day_range_end: 'day-range-end aria-selected:bg-primary aria-selected:text-primary-foreground',
@@ -67,6 +73,7 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: R
         ...classNames,
       }}
       components={{
+        ...components,
         IconLeft: ({ className, ...props }) => (
           <ChevronLeft className={cn('size-4 md:size-5 lg:size-7', className)} {...props} />
         ),

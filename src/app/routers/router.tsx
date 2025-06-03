@@ -1,6 +1,6 @@
 import ProtectedRoute from '@/features/auth/ui/ProtectedRoute';
 import { HomePage } from '@/pages/home';
-import { Schedule } from '@/pages/schedule';
+import { SchedulePage } from '@/pages/schedule/ui/SchedulePage';
 import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([
@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/schedule/:id',
-    element: <Schedule />,
+    element: <SchedulePage />,
   },
   {
     path: '*',

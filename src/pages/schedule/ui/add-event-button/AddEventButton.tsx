@@ -1,10 +1,10 @@
 import { useSetAtom } from 'jotai';
-import { eventFormOpenAtom } from '../../model/atoms';
+import { isFormOpenAtom } from '../../model/atoms';
 import { Button } from '@/shared/ui/Button';
 import { Plus } from 'lucide-react';
 
 export const AddEventButton = () => {
-  const setOpen = useSetAtom(eventFormOpenAtom);
+  const setOpen = useSetAtom(isFormOpenAtom);
 
   return (
     <div className="fixed bottom-20 left-1/2 -translate-x-1/2 w-full max-w-[1300px]">

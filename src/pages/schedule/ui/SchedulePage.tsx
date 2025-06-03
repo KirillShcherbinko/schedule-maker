@@ -6,11 +6,11 @@ import { TagsList } from './tags-list';
 import { AddEventButton } from './add-event-button/AddEventButton';
 import { AddEventForm } from './add-event-form';
 
-export const Schedule = () => {
+export const SchedulePage = () => {
   return (
     <div className="flex flex-col">
       <Header />
-      <div className="flex flex-col items-center justify-between md:items-start md:flex-row mt-25">
+      <div className="flex flex-col items-center justify-between md:items-start md:flex-row mt-25 bg-block-primary p-5 rounded-2xl">
         <div className="flex flex-col w-full p-5 md:p-0 gap-5">
           <TagsList />
           <AdaptiveCalendar />

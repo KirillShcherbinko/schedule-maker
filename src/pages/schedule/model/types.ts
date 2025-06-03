@@ -1,16 +1,16 @@
-import type { TEvent, TTag } from '@/shared/model/types';
+import type { TEvent, TEventsList, TTag } from '@/shared/model/types';
 
 export type TEventStoreState = {
-  events: TEvent[];
-  filteredEvents: TEvent[];
+  events: TEventsList;
+  added: TEvent[];
+  removed: TEvent[];
 };
 
 export type TEventStoreAction = {
-  setEvents: (events: TEvent[]) => void;
-  setFilteredEvents: (filteredEvents: TEvent[]) => void;
+  setEvents: (events: TEventsList) => void;
   addEvent: (event: TEvent) => void;
-  removeEvent: (eventId: number) => void;
-  updateEvent: (eventId: number, eventData: Partial<TEvent>) => void;
+  removeEvent: (event: TEvent) => void;
+  updateEvent: (newEvent: TEvent, oldEvent: TEvent) => void;
 };
 
 export type TTagStoreState = {
@@ -23,3 +23,11 @@ export type TTagStoreAction = {
   removeTag: (tagId: number) => void;
   updateTag: (tagId: number, tagData: Partial<TTag>) => void;
 };
+
+export type TUpdateResult = {
+  events: TEventsList;
+  added: TEvent[];
+  removed: TEvent[];
+};
+
+export type TEventCallback = (eventsForDate: TEvent[]) => TEvent[];
