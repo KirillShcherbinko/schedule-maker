@@ -1,1 +1,0 @@
-export { AccordionBadge } from './AccordionBadge';

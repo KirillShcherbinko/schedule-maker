@@ -36,12 +36,12 @@ function Calendar({
     <DayPicker
       locale={i18n.language === 'ru' ? customRu : enUS}
       showOutsideDays={showOutsideDays}
-      className={cn('p-3', className)}
+      className={cn('p-1 sm:p-3', className)}
       classNames={{
         months: 'flex flex-col sm:flex-row gap-2',
         month: 'flex flex-col gap-4',
         caption: 'flex justify-between pt-1 items-center w-full',
-        caption_label: 'text-sm sm:text-md md:text-lg lg:text-xl font-medium text-capitalize',
+        caption_label: 'text-md md:text-lg lg:text-xl font-medium text-capitalize m-0',
         nav: 'flex items-center gap-1',
         nav_button: cn(buttonVariants({ variant: null }), 'size-10 bg-transparent p-0 opacity-50 hover:opacity-100'),
         nav_button_previous: 'p-0',
@@ -49,8 +49,8 @@ function Calendar({
         table: 'w-full space-x-1',
         head_row: 'flex justify-between',
         head_cell:
-          'text-muted-foreground rounded-md w-10 lg:w-14 font-normal text-sm sm:text-md md:text:lg lg:text-xl text-capitalize',
-        row: 'flex w-full mt-2 gap-2',
+          'text-muted-foreground rounded-md w-8 md:w-10 lg:w-14 font-normal text-sm sm:text-md md:text:lg lg:text-xl text-capitalize',
+        row: 'flex justify-between w-full mt-2',
         cell: cn(
           'relative p-0 text-center focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-accent [&:has([aria-selected].day-range-end)]:rounded-r-md',
           props.mode === 'range'
@@ -59,14 +59,14 @@ function Calendar({
         ),
         day: cn(
           buttonVariants({ variant: 'ghost' }),
-          'size-8 sm:size-10 lg:size-14 p-0 font-normal text-sm sm:text-md md:text-lg lg:text-xl aria-selected:opacity-100 hover:bg-accent hover:text-accent-foreground',
+          'px-2 py-1 font-normal text-md md:text-lg lg:text-xl aria-selected:opacity-100 hover:bg-accent hover:text-accent-foreground w-8 md:w-10 lg:w-14 max-w-[56px] h-auto',
         ),
         day_range_start: 'day-range-start aria-selected:bg-primary aria-selected:text-primary-foreground',
         day_range_end: 'day-range-end aria-selected:bg-primary aria-selected:text-primary-foreground',
         day_selected:
           'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground',
         day_today: 'bg-accent text-accent-foreground',
-        day_outside: 'day-outside text-muted-foreground aria-selected:text-muted-foreground',
+        day_outside: 'day-outside text-muted-foreground aria-selected:text-primary-foreground',
         day_disabled: 'text-muted-foreground opacity-50',
         day_range_middle: 'aria-selected:bg-accent aria-selected:text-accent-foreground',
         day_hidden: 'invisible',

@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@plugin 'tailwind-scrollbar';
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -123,7 +125,7 @@
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
 
-  --accent: oklch(0.93 0 280);
+  --accent: oklch(0.9 0 280);
   --accent-foreground: oklch(0.2 0.02 280);
 
   --destructive: oklch(0.577 0.245 27.325);

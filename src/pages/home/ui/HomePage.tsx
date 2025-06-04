@@ -1,10 +1,10 @@
-import { Header } from '@/widgets/header/Header';
-import { Welcome } from './welcome';
-import { TechIntro } from './tech-intro';
-import { MainFeatures } from './main-features';
-import { Instruction } from './instruction';
-import { StartNow } from './start-now';
-import { Footer } from '@/widgets/footer';
+import { Header } from '@/widgets/Header';
+import { Welcome } from './Welcome';
+import { TechIntro } from './TechIntro';
+import { MainFeatures } from './MainFeatures';
+import { Instruction } from './Instruction';
+import { StartNow } from './StartNow';
+import { Footer } from '@/widgets/Footer';
 
 export const HomePage = () => {
   return (

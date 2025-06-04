@@ -1,1 +1,1 @@
-export { Welcome } from './Welcome';
+export { Welcome } from './ui/Welcome';

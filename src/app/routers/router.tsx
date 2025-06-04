@@ -1,4 +1,4 @@
-import ProtectedRoute from '@/features/auth/ui/ProtectedRoute';
+import { ProtectedRoute } from '@/features/ProtectedRoute';
 import { HomePage } from '@/pages/home';
 import { SchedulePage } from '@/pages/schedule/ui/SchedulePage';
 import { createBrowserRouter } from 'react-router-dom';

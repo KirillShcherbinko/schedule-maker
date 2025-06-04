@@ -1,6 +1,5 @@
 import { createContext } from 'react';
-
-export type TTheme = 'light' | 'dark';
+import type { TTheme } from '../model/types';
 
 export type TThemeContext = {
   theme: TTheme;

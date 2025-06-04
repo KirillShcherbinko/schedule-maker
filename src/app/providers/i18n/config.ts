@@ -2,27 +2,32 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import ruCommon from '@/widgets/locales/ru.json';
-import enCommon from '@/widgets/locales/en.json';
+import ruHeader from '@/widgets/header/config/locales/ru.json';
+import enHeader from '@/widgets/header/config/locales/en.json';
 
-import ruHome from '@/pages/home/locales/ru.json';
-import enHome from '@/pages/home/locales/en.json';
+import ruFooter from '@/widgets/footer/config/locales/ru.json';
+import enFooter from '@/widgets/footer/config/locales/en.json';
+
+import ruHome from '@/pages/home/config/locales/ru.json';
+import enHome from '@/pages/home/config/locales/en.json';
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     fallbackLng: 'ru',
-    defaultNS: 'common',
-    ns: ['common', 'home'],
+    defaultNS: 'home',
+    ns: ['footer', 'header', 'home'],
     resources: {
       ru: {
-        common: ruCommon,
+        footer: ruFooter,
         home: ruHome,
+        header: ruHeader,
       },
       en: {
-        common: enCommon,
+        footer: enFooter,
         home: enHome,
+        header: enHeader,
       },
     },
     interpolation: {

@@ -1,0 +1,59 @@
+{
+  "welcome": {
+    "title": "Welcome to Event Weave 📅",
+    "subtitle": "smart event planning"
+  },
+  "techIntro": {
+    "heading": "Why Event Weave?",
+    "body": "Event Weave isn’t just a scheduling app. It’s an intuitive tool that helps you weave your tasks, meetings, and events into one clear, cohesive, and beautiful schedule. We believe planning should be simple, flexible, and visual — without unnecessary confusion or clutter. Our solution: tags and customizable scheduling.",
+    "footer": {
+      "tag1": "Clear scheduling",
+      "tag2": "Event filtering",
+      "tag3": "Intuitive design"
+    }
+  },
+  "mainFeatures": [
+    {
+      "title": "Create Schedules",
+      "icon": "calendar",
+      "text": "Add events in just a couple of clicks, specifying date, time, and description."
+    },
+    {
+      "title": "Convenient Tags",
+      "icon": "tag",
+      "text": "Assign tags to events to filter them by category (e.g., “work”, “leisure”, “meetings”, etc.). This eliminates confusion and makes browsing lightning-fast."
+    },
+    {
+      "title": "Edit Schedules",
+      "icon": "edit",
+      "text": "Schedule editing – Want to change event details or tags? Just go to your profile and update anything, anytime."
+    },
+    {
+      "title": "User Profile",
+      "icon": "user",
+      "text": "All your schedules in one place. Access and manage them wherever you are."
+    }
+  ],
+  "instruction": {
+    "title": "How to start creating schedules?",
+    "steps": [
+      {
+        "title": "Create a New Schedule",
+        "text": "Select a date and start adding events."
+      },
+      {
+        "title": "Add Events and Tags",
+        "text": "Specify the type of event and add a tag to make it easier to find later."
+      },
+      {
+        "title": "View and Edit",
+        "text": "Go to your profile to adjust the schedule, see what’s planned, or filter events by tags."
+      }
+    ]
+  },
+  "startNow": {
+    "title": "Join us!",
+    "description": "Try Event Weave today and feel how easy and enjoyable time management can be. Plan smarter, simplify your day, and live freely — we’re here to help you every step of the way.",
+    "buttonText": "Start now"
+  }
+}

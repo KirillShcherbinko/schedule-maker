@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "title": "Настройки",
+    "languageSelector": {
+      "russian": "Русский",
+      "english": "Английский"
+    },
+    "themeSelector": {
+      "light": "Светлая",
+      "dark": "Тёмная"
+    }
+  }
+}

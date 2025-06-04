@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Pencil, Trash2 } from 'lucide-react';
 import { format } from 'date-fns';
-import { BadgeList } from '@/widgets/badge-list';
+import { BadgeList } from '@/widgets/BadgeList';
 import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import type { TEvent } from '@/shared/model/types';
@@ -24,6 +24,9 @@ export const Event = ({ event }: EventProps) => {
   return (
     <MotionCard
       className="max-w-[550px] w-full p-4 self-center md:self-end"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
       layout
       whileHover={{ translateY: -8 }}
       whileTap={{ translateY: -8 }}
@@ -53,7 +56,7 @@ export const Event = ({ event }: EventProps) => {
 
       {tags.length > 0 && (
         <div className="mt-3">
-          <BadgeList badges={tags} badgeClassName="text-xs" />
+          <BadgeList badges={tags} className="gap-1" badgeClassName="text-xs" />
         </div>
       )}
     </MotionCard>

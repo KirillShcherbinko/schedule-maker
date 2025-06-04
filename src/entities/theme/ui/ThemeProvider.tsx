@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, ThemeContext, type TTheme } from '../config/ThemeContext';
+import { LOCAL_STORAGE_THEME_KEY, ThemeContext } from '../config/ThemeContext';
+import type { TTheme } from '../model/types';
 
 type ThemeProviderProps = {
   children: ReactNode;
@@ -7,7 +8,7 @@ type ThemeProviderProps = {
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const defaultTheme: TTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as TTheme) || 'light';
-  
+
   document.documentElement.classList.toggle('dark', defaultTheme === 'dark');
 
   const [theme, setTheme] = useState<TTheme>(defaultTheme);
@@ -18,9 +19,5 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };
 
-  return (
-    <ThemeContext.Provider value={{ theme, handleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme, handleTheme }}>{children}</ThemeContext.Provider>;
 };
