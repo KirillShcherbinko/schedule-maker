@@ -7,7 +7,7 @@ export const TitleSearch = () => {
   const [{ events }] = useAtom(eventsAtom);
 
   return (
-    <div className="max-w-[500px] w-full self-center md:self-end">
+    <div className="max-w-[500px] w-full pt-2">
       <FilterByTitle data={events} onFilterChange={setTitle} placeholder="Filter by title..." />
     </div>
   );

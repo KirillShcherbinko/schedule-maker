@@ -17,7 +17,7 @@ export const CalendarButton = (props: DayContentProps) => {
       <p className="">{date.getDate()}</p>
       {numberOfEvents ? (
         <div className={cn(
-          "flex items-center justify-center rounded-full size-4.5 md:size-5 lg:size-7",
+          "flex items-center justify-center rounded-full size-4.5 md:size-5 lg:size-6 text-md md:text-lg",
           strDate === selectedDate.toDateString() ? 'bg-primary-foreground text-primary' : 'bg-primary text-primary-foreground'
           )}>
           {numberOfEvents}

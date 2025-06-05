@@ -40,7 +40,26 @@
   --color-accent-foreground: var(--accent-foreground);
 
   --color-destructive: var(--destructive);
+
   --color-border: var(--border);
+  --color-border-primary: var(--border-primary);
+  --color-border-sky: var(--border-sky);
+  --color-border-grass: var(--border-grass);
+  --color-border-lemon: var(--border-lemon);
+  --color-border-peach: var(--border-peach);
+  --color-border-lavender: var(--border-lavender);
+  --color-border-mint: var(--border-mint);
+  --color-border-rose: var(--border-rose);
+  --color-border-sand: var(--border-sand);
+  --color-border-ice: var(--border-ice);
+  --color-border-plum: var(--border-plum);
+  --color-border-ocean: var(--border-ocean);
+  --color-border-moss: var(--border-moss);
+  --color-border-amber: var(--border-amber);
+  --color-border-coral: var(--border-coral);
+  --color-border-jade: var(--border-jade);
+  --color-border-blush: var(--border-blush);
+
   --color-input: var(--input);
 
   --color-ring: var(--ring);
@@ -78,23 +97,6 @@
   --color-badge-coral: var(--badge-coral);
   --color-badge-jade: var(--badge-jade);
   --color-badge-blush: var(--badge-blush);
-
-  --border-badge-sky: var(--badge-sky);
-  --border-badge-grass: var(--badge-grass);
-  --border-badge-lemon: var(--badge-lemon);
-  --border-badge-peach: var(--badge-peach);
-  --border-badge-lavender: var(--badge-lavender);
-  --border-badge-mint: var(--badge-mint);
-  --border-badge-rose: var(--badge-rose);
-  --border-badge-sand: var(--badge-sand);
-  --border-badge-ice: var(--badge-ice);
-  --border-badge-plum: var(--badge-plum);
-  --border-badge-ocean: var(--badge-ocean);
-  --border-badge-moss: var(--badge-moss);
-  --border-badge-amber: var(--badge-amber);
-  --border-badge-coral: var(--badge-coral);
-  --border-badge-jade: var(--badge-jade);
-  --border-badge-blush: var(--badge-blush);
 }
 
 :root {
@@ -111,7 +113,7 @@
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
 
-  --hover: oklch(0.174 0.0069 3); 
+  --hover: oklch(0.174 0.0069 3);
 
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
@@ -129,7 +131,26 @@
   --accent-foreground: oklch(0.2 0.02 280);
 
   --destructive: oklch(0.577 0.245 27.325);
+
   --border: oklch(0.922 0 0);
+  --border-primary: oklch(0.5083 0.2188 276);
+  --border-sky: oklch(0.88 0.08 225);
+  --border-grass: oklch(0.85 0.09 135);
+  --border-lemon: oklch(0.92 0.12 100);
+  --border-peach: oklch(0.93 0.09 35);
+  --border-lavender: oklch(0.86 0.08 270);
+  --border-mint: oklch(0.87 0.1 160);
+  --border-rose: oklch(0.9 0.1 5);
+  --border-sand: oklch(0.91 0.06 70);
+  --border-ice: oklch(0.89 0.07 205);
+  --border-plum: oklch(0.82 0.1 300);
+  --border-ocean: oklch(0.83 0.12 240);
+  --border-moss: oklch(0.84 0.11 125);
+  --border-amber: oklch(0.93 0.1 70);
+  --border-coral: oklch(0.91 0.12 25);
+  --border-jade: oklch(0.87 0.1 175);
+  --border-blush: oklch(0.9 0.08 350);
+
   --input: oklch(0.922 0 0);
 
   --ring: oklch(0.708 0 0);
@@ -199,7 +220,26 @@
   --accent-foreground: oklch(0.92 0.01 60);
 
   --destructive: oklch(0.6 0.2 15);
+
   --border: oklch(0.3 0.04 285);
+  --border-primary: oklch(0.65 0.18 35);
+  --border-sky: oklch(0.5 0.15 240);
+  --border-grass: oklch(0.48 0.16 140);
+  --border-lemon: oklch(0.6 0.18 80);
+  --border-peach: oklch(0.62 0.16 35);
+  --border-lavender: oklch(0.52 0.16 285);
+  --border-mint: oklch(0.55 0.14 165);
+  --border-rose: oklch(0.6 0.18 10);
+  --border-sand: oklch(0.65 0.12 55);
+  --border-ice: oklch(0.58 0.16 220);
+  --border-plum: oklch(0.5 0.18 310);
+  --border-ocean: oklch(0.48 0.2 250);
+  --border-moss: oklch(0.5 0.18 130);
+  --border-amber: oklch(0.68 0.18 65);
+  --border-coral: oklch(0.62 0.2 20);
+  --border-jade: oklch(0.52 0.16 170);
+  --border-blush: oklch(0.6 0.16 350);
+
   --input: oklch(0.25 0.04 285);
 
   --ring: oklch(0.7 0.16 35);
@@ -241,7 +281,7 @@
 
 @layer base {
   * {
-    @apply outline-none ring-0 focus:ring-0 focus:outline-none focus:border-none;
+    @apply outline-none ring-0 focus:ring-0 focus:outline-none;
   }
   body {
     @apply bg-background text-foreground transition-colors duration-300;

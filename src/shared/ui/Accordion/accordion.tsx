@@ -30,7 +30,7 @@ function AccordionTrigger({ className, children, ...props }: React.ComponentProp
         {...props}
       >
         {children}
-        <ChevronDownIcon className="text-foreground pointer-events-none size-4 shrink-0 transition-transform duration-200" />
+        <ChevronDownIcon className="text-foreground pointer-events-none size-6 md:size-8 shrink-0 transition-transform duration-300" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );
@@ -40,7 +40,7 @@ function AccordionContent({ className, children, ...props }: React.ComponentProp
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down whitespace-normal text-sm"
+      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down duration-300 whitespace-normal text-sm"
       {...props}
     >
       <div className={cn('pt-0 pb-4', className)}>{children}</div>

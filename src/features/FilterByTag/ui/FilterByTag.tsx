@@ -1,15 +1,9 @@
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/shared/ui/DropdownMenu';
 import { Button } from '@/shared/ui/Button';
 import type { TEventsList, TTag } from '@/shared/model/types';
 import { useState } from 'react';
-import { Pencil, Trash2 } from 'lucide-react';
+import { Plus } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionTrigger, AccordionItem } from '@/shared/ui/Accordion';
+import { TagRecord } from './TagRecord';
 
 type FilterByTagProps = {
   data: TEventsList;
@@ -29,33 +23,29 @@ export const FilterByTag = ({ data, tags, onFilterChange }: FilterByTagProps) =>
   };
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button>Filters by tag</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-64">
-        <DropdownMenuLabel>Choose tags</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        {tags.map((tag) => (
-          <DropdownMenuCheckboxItem
-            key={tag.id}
-            className="hover:bg-transparent focus:bg-transparent flex flex-row justify-between"
-            checked={selectedTags.includes(tag.id)}
-            onSelect={(evt: Event) => evt.preventDefault()}
-            onCheckedChange={(checked: boolean) => handleTagToggle(tag.id, checked)}
-          >
-            {tag.title}
-            <div className="flex gap-1">
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Pencil className="h-4 w-4" />
-              </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:text-destructive">
-                <Trash2 className="h-4 w-4" />
+    <Accordion type="single" collapsible className="flex flex-col w-full">
+      <div className="overflow-hidden">
+        <AccordionItem value="filter-by-tag" className="w-full">
+          <AccordionTrigger className="hover:bg-accent/50 pt-2 pb-2 pl-5 pr-5 rounded-2xl">
+            <div className="flex items-center gap-1">
+              <p className="text-lg">Tags</p>
+              <Button variant="ghost" size="icon" className="w-8 h-8">
+                <Plus className="w-4 h-4" />
               </Button>
             </div>
-          </DropdownMenuCheckboxItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+          </AccordionTrigger>
+          <AccordionContent className="max-h-[400px] overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-500">
+            {tags.map((tag) => (
+              <TagRecord
+                key={tag.id}
+                tag={tag}
+                isChecked={selectedTags.includes(tag.id)}
+                handleTagToggle={(checked: boolean) => handleTagToggle(tag.id, checked)}
+              />
+            ))}
+          </AccordionContent>
+        </AccordionItem>
+      </div>
+    </Accordion>
   );
 };

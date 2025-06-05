@@ -1,33 +1,30 @@
 import { motion } from 'framer-motion';
-import { Pencil, Trash2 } from 'lucide-react';
 import { format } from 'date-fns';
-import { BadgeList } from '@/widgets/BadgeList';
-import { Button } from '@/shared/ui/Button';
+import { BadgeList } from '@/shared/ui/BadgeList';
 import { Card } from '@/shared/ui/Card';
 import type { TEvent } from '@/shared/model/types';
-import { useEventStore } from '@/pages/schedule/model/store';
+import { EditButtonGroup } from '@/shared/ui/EditButtonGroup';
 
 type EventProps = {
   event: TEvent;
+  onDelete: (event: TEvent) => void;
 };
 
-export const Event = ({ event }: EventProps) => {
+export const Event = ({ event, onDelete }: EventProps) => {
   const { title, startTime, endTime, tags } = event;
 
   const formattedStartTime = format(startTime, 'HH:mm');
   const formattedEndTime = format(endTime, 'HH:mm');
 
-  const onDelete = useEventStore((state) => state.removeEvent);
-
   const MotionCard = motion.create(Card);
 
   return (
     <MotionCard
-      className="max-w-[550px] w-full p-4 self-center md:self-end"
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
+      className={`self-center max-w-[550px] w-full p-4 border-4 border-[var(--border-${event.tags[0].color})]`}
       layout
+      initial={{ opacity: 1, scale: 1 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0 }}
       whileHover={{ translateY: -8 }}
       whileTap={{ translateY: -8 }}
       transition={{ duration: 0.3 }}
@@ -39,19 +36,7 @@ export const Event = ({ event }: EventProps) => {
             {formattedStartTime} - {formattedEndTime}
           </p>
         </div>
-        <div className="flex gap-1">
-          <Button variant="ghost" size="icon" className="h-8 w-8">
-            <Pencil className="h-4 w-4" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => onDelete(event)}
-            className="h-8 w-8 text-destructive hover:text-destructive"
-          >
-            <Trash2 className="h-4 w-4" />
-          </Button>
-        </div>
+        <EditButtonGroup item={event} onDelete={onDelete}/>
       </div>
 
       {tags.length > 0 && (

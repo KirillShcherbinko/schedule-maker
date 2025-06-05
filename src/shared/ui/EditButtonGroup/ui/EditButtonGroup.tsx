@@ -1,0 +1,26 @@
+import { Pencil, Trash2 } from 'lucide-react';
+import { Button } from '../../Button';
+
+type EditButtonGroupProps<T> = {
+  item: T;
+  onDelete?: (item: T) => void;
+  onEdit?: (isOpen: boolean) => void;
+};
+
+export const EditButtonGroup = <T extends object>({ item, onDelete, onEdit }: EditButtonGroupProps<T>) => {
+  return (
+    <div className="flex gap-1">
+      <Button variant="ghost" size="icon" onClick={() => onEdit?.(true)} className="h-8 w-8">
+        <Pencil className="h-4 w-4" />
+      </Button>
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => onDelete?.(item)}
+        className="h-8 w-8 text-destructive hover:text-destructive"
+      >
+        <Trash2 className="h-4 w-4" />
+      </Button>
+    </div>
+  );
+};
