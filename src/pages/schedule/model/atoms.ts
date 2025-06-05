@@ -1,11 +1,13 @@
 import { atom } from 'jotai';
 import { atomWithStore } from 'jotai-zustand';
-import { useEventStore } from './store';
-import type { TEventsList } from '@/shared/model/types';
+import type { TEventsList } from '@/entities/Event/model/types';
+import { useEventStore } from '@/entities/Event/model/store';
+import { useTagStore } from '@/entities/Tag/model/store';
 
 export const selectedDateAtom = atom(new Date());
 
 export const eventsAtom = atomWithStore(useEventStore);
+export const tagsAtom = atomWithStore(useTagStore);
 
 export const tagFilterAtom = atom<number[]>([]);
 export const titleFilterAtom = atom<string>('');

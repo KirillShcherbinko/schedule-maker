@@ -1,24 +1,25 @@
 import { Button } from '@/shared/ui/Button';
-import type { TEventsList, TTag } from '@/shared/model/types';
+import type { TTag } from '@/entities/Tag/model/types';
 import { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionTrigger, AccordionItem } from '@/shared/ui/Accordion';
 import { TagRecord } from './TagRecord';
+import { useEventStore } from '@/entities/Event/model/store';
 
 type FilterByTagProps = {
-  data: TEventsList;
   tags: TTag[];
   onFilterChange: (tags: number[]) => void;
 };
 
-export const FilterByTag = ({ data, tags, onFilterChange }: FilterByTagProps) => {
+export const FilterByTag = ({ tags, onFilterChange }: FilterByTagProps) => {
+  const events = useEventStore((state) => state.events);
   const [selectedTags, setSelectedTags] = useState<number[]>([]);
 
   const handleTagToggle = (tagId: number, checked: boolean) => {
     const newTags = checked ? [...selectedTags, tagId] : selectedTags.filter((id) => id !== tagId);
     setSelectedTags(newTags);
 
-    if (!data) return;
+    if (!events) return;
     onFilterChange(newTags);
   };
 

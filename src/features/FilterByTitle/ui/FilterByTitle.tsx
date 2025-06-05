@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent } from 'react';
 import { Input } from '@/shared/ui/Input';
 import { Search } from 'lucide-react';
-import type { TEventsList } from '@/shared/model/types';
+import type { TEventsList } from '@/entities/Event/model/types';
 
 type FilterByTitleProps = {
   data: TEventsList;

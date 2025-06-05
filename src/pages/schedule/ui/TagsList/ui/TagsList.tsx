@@ -1,11 +1,9 @@
 import { FilterByTag } from '@/features/FilterByTag';
-import { useTagStore } from '../../../model/store';
-import { useShallow } from 'zustand/react/shallow';
-import { eventsAtom, tagFilterAtom } from '../../../model/atoms';
+import { eventsAtom, tagFilterAtom, tagsAtom } from '../../../model/atoms';
 import { useAtom } from 'jotai';
 
 export const TagsList = () => {
-  const { tags } = useTagStore(useShallow((state) => ({ tags: state.tags })));
+  const [{ tags }] = useAtom(tagsAtom);
   const [{ events }] = useAtom(eventsAtom);
 
   const [, setTags] = useAtom(tagFilterAtom);

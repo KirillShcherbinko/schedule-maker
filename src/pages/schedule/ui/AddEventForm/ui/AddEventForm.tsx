@@ -5,9 +5,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/shared/ui/Di
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { isFormOpenAtom } from '../../../model/atoms';
-import { useTagStore, useEventStore } from '../../../model/store';
-import type { TEvent, TTag } from '@/shared/model/types';
+import { useEventStore } from '@/entities/Event/model/store';
+import type { TEvent } from '@/entities/Event/model/types';
+import type { TTag } from '@/entities/Tag/model/types';
 import { eventFormSchema, type EventFormData } from '@/entities/Event/model/schemas';
+import { useTagStore } from '@/entities/Tag/model/store';
 
 export const AddEventForm = () => {
   const [open, setOpen] = useAtom(isFormOpenAtom);

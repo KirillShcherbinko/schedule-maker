@@ -2,15 +2,17 @@ import { motion } from 'framer-motion';
 import { format } from 'date-fns';
 import { BadgeList } from '@/shared/ui/BadgeList';
 import { Card } from '@/shared/ui/Card';
-import type { TEvent } from '@/shared/model/types';
+import type { TEvent } from '@/entities/Event/model/types';
 import { EditButtonGroup } from '@/shared/ui/EditButtonGroup';
+import { useEventStore } from '../model/store';
 
 type EventProps = {
   event: TEvent;
-  onDelete: (event: TEvent) => void;
 };
 
-export const Event = ({ event, onDelete }: EventProps) => {
+export const Event = ({ event }: EventProps) => {
+  const onDelete = useEventStore((state) => state.removeEvent);
+
   const { title, startTime, endTime, tags } = event;
 
   const formattedStartTime = format(startTime, 'HH:mm');
@@ -20,7 +22,7 @@ export const Event = ({ event, onDelete }: EventProps) => {
 
   return (
     <MotionCard
-      className={`self-center max-w-[550px] w-full p-4 border-4 border-[var(--border-${event.tags[0].color})]`}
+      className={`self-center max-w-[550px] w-full p-4 border-4 border-[var(--border-${event.tags.length ? event.tags[0].color : 'sky'})]`}
       layout
       initial={{ opacity: 1, scale: 1 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -36,7 +38,7 @@ export const Event = ({ event, onDelete }: EventProps) => {
             {formattedStartTime} - {formattedEndTime}
           </p>
         </div>
-        <EditButtonGroup item={event} onDelete={onDelete}/>
+        <EditButtonGroup item={event} onDelete={onDelete} />
       </div>
 
       {tags.length > 0 && (

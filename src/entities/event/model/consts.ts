@@ -1,19 +1,12 @@
-import type { TEvent, TTag } from "@/shared/model/types";
-import type { TBadgeColor } from "@/shared/ui/Badge/model/types";
+import type { TEvent } from "./types";
 import rawData from './mocks.json';
-
+import type { TBadgeColor } from "@/shared/ui/Badge/model/types";
 
 export type TMockData = {
-  tags: TTag[];
   events: TEvent[];
 };
 
 export const data: TMockData = {
-  tags: rawData.tags.map((tag) => ({
-    ...tag,
-    color: tag.color as TBadgeColor,
-    events: [] as TEvent[],
-  })),
   events: rawData.events.map((event) => ({
     ...event,
     startTime: new Date(event.startTime),
