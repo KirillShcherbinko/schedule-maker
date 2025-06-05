@@ -10,16 +10,18 @@ export const SchedulePage = () => {
   return (
     <div className="flex flex-col">
       <Header />
-      <div className="flex flex-col items-center justify-between md:items-start md:flex-row mt-25 bg-block-primary p-5 rounded-2xl min-h-[740px]">
-        <div className="flex flex-col p-5 md:p-0 gap-2">
+      <div className="flex flex-col items-center justify-start md:justify-between md:items-start md:flex-row mt-20 bg-block-primary p-5 rounded-2xl min-h-[740px]">
+        <div className="flex flex-row items-start justify-center md:flex-col p-0 gap-2 w-full md:w-auto">
           <AdaptiveCalendar />
           <TagsList />
         </div>
         <div className="flex flex-col items-center w-full gap-5">
-          <TitleSearch />
+          <div className="flex justify-center items-center gap-2 p-2 w-full">
+            <AddEventButton />
+            <TitleSearch />
+          </div>
           <EventsList />
         </div>
-        <AddEventButton />
       </div>
       <AddEventForm />
     </div>

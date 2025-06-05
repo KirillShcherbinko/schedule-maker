@@ -1,0 +1,5 @@
+{
+  "titleSearch": { "placeholder": "Поиск по имени..." },
+  "noEventsScreen": { "title": "Нет Событий" },
+  "addEventButton": { "title": "Создать" }
+}

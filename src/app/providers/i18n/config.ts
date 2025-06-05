@@ -11,23 +11,28 @@ import enFooter from '@/widgets/footer/config/locales/en.json';
 import ruHome from '@/pages/home/config/locales/ru.json';
 import enHome from '@/pages/home/config/locales/en.json';
 
+import ruSchedule from '@/pages/schedule/config/locales/ru.json';
+import enSchedule from '@/pages/schedule/config/locales/en.json';
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     fallbackLng: 'ru',
     defaultNS: 'home',
-    ns: ['footer', 'header', 'home'],
+    ns: ['footer', 'header', 'home', 'schedule'],
     resources: {
       ru: {
         footer: ruFooter,
         home: ruHome,
         header: ruHeader,
+        schedule: ruSchedule,
       },
       en: {
         footer: enFooter,
         home: enHome,
         header: enHeader,
+        schedule: enSchedule,
       },
     },
     interpolation: {

@@ -5,15 +5,11 @@ import { useAtom } from 'jotai';
 import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/Popover';
 import { Button } from '@/shared/ui/Button';
 import { CalendarIcon } from 'lucide-react';
-import { format } from 'date-fns';
 import { CalendarButton } from './CalendarButton/ui/CalendarButton';
-
-const BREAKING_WIDTH = 768;
+import { BREAKING_WIDTH } from '../model/consts';
 
 export const AdaptiveCalendar = () => {
   const width = useWindowWidth();
-  const isBreakingWidth = width > BREAKING_WIDTH;
-
   const [date, setDate] = useAtom(selectedDateAtom);
 
   const handleSelectedDate = (selectedDate: Date | undefined) => {
@@ -22,7 +18,7 @@ export const AdaptiveCalendar = () => {
 
   return (
     <div className="p-0 flex flex-col">
-      {isBreakingWidth ? (
+      {width > BREAKING_WIDTH ? (
         <Calendar
           mode="single"
           selected={date}
@@ -33,12 +29,11 @@ export const AdaptiveCalendar = () => {
       ) : (
         <Popover>
           <PopoverTrigger asChild>
-            <Button className="w-full self-center justify-center text-center font-normal pl-10 pr-10">
+            <Button className="h-12 w-12 self-center justify-center text-center font-normal rounded-full">
               <CalendarIcon />
-              {format(date, 'PPP')}
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-0" align="center">
+          <PopoverContent className="w-auto p-0 border-0" align="center">
             <Calendar
               mode="single"
               selected={date}

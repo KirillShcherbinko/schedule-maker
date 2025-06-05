@@ -1,0 +1,5 @@
+{
+  "titleSearch": { "placeholder": "Filter by title..." },
+  "noEventsScreen": { "title": "No events" },
+  "addEventButton": { "title": "Create" }
+}
