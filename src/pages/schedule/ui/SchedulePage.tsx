@@ -11,7 +11,7 @@ export const SchedulePage = () => {
     <div className="flex flex-col">
       <Header />
       <div className="flex flex-col items-center justify-start md:justify-between md:items-start md:flex-row mt-20 bg-block-primary p-5 rounded-2xl min-h-[740px]">
-        <div className="flex flex-row items-start justify-center md:flex-col p-0 gap-2 w-full md:w-auto">
+        <div className="flex flex-row items-start justify-center md:flex-col p-2 md:p-0 gap-2 w-full md:w-auto">
           <AdaptiveCalendar />
           <TagsList />
         </div>

@@ -1,27 +1,11 @@
 import * as React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { DayPicker } from 'react-day-picker';
-import { ru } from 'date-fns/locale/ru';
 import { enUS } from 'date-fns/locale/en-US';
-import type { Locale } from 'date-fns';
 import { cn } from '@/shared/lib/utils';
 import { buttonVariants } from '@/shared/ui/Button';
 import { useTranslation } from 'react-i18next';
-
-const customRu: Locale = {
-  ...ru,
-  localize: {
-    ...ru.localize,
-    month: (n, opts) => {
-      const name = ru.localize.month(n, opts);
-      return name.charAt(0).toUpperCase() + name.slice(1);
-    },
-    day: (n, opts) => {
-      const name = ru.localize.day(n, opts);
-      return name.charAt(0).toUpperCase() + name.slice(1);
-    },
-  },
-};
+import { customRu } from '@/shared/model/consts';
 
 function Calendar({
   className,

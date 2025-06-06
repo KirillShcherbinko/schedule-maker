@@ -29,11 +29,11 @@ export const AdaptiveCalendar = () => {
       ) : (
         <Popover>
           <PopoverTrigger asChild>
-            <Button className="h-12 w-12 self-center justify-center text-center font-normal rounded-full">
+            <Button className="h-10 w-10 self-center justify-center text-center font-normal rounded-full">
               <CalendarIcon />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-0 border-0" align="center">
+          <PopoverContent className="w-auto p-0 border-0" align="start">
             <Calendar
               mode="single"
               selected={date}
