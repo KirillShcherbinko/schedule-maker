@@ -18,7 +18,9 @@ export const AddEventButton = () => {
       className="rounded-full md:rounded-2xl p-0 flex items-center justify-center h-10 w-10 md:h-10 md:w-auto"
       aria-label="Add event"
     >
-      {width > BREAKING_WIDTH && <p className="font-medium text-lg m-0">{t(`${ADD_EVENT_BUTTON_LINK}.title`, BASE_NAMESPACE)}</p>}
+      {width > BREAKING_WIDTH && (
+        <p className="font-medium text-lg m-0">{t(`${ADD_EVENT_BUTTON_LINK}.title`, BASE_NAMESPACE)}</p>
+      )}
       <Plus className="size-6 p-0" />
     </Button>
   );

@@ -10,7 +10,7 @@ export const AddTagButton = () => {
   return (
     <div className="flex items-center gap-1">
       <p className="text-lg">{t(`${ADD_TAG_BUTTON_LINK}.title`, BASE_NAMESPACE)}</p>
-      <Button variant="ghost" size="icon" className="w-8 h-8">
+      <Button variant="ghost" size="icon" className="w-8 h-8 rounded-full">
         <Plus className="w-4 h-4" />
       </Button>
     </div>

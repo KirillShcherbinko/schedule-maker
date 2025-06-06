@@ -1,6 +1,21 @@
 {
   "titleSearch": { "placeholder": "Filter by title..." },
-  "tagsList": {"title": "Tags"},
+  "tagsList": { "title": "Tags" },
   "noEventsScreen": { "title": "No events" },
-  "addEventButton": { "title": "Create" }
+  "addEventButton": { "title": "Create" },
+  "eventForm": {
+    "title": "Event title",
+    "date": "Event date",
+    "startTime": "Start time",
+    "endTime": "End time",
+    "tags": "Tags",
+    "create": {
+      "title": "Create",
+      "submitButtonText": "Create"
+    },
+    "edit": {
+      "title": "Edit",
+      "submitButtonText": "Update"
+    }
+  }
 }

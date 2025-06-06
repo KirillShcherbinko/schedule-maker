@@ -23,7 +23,7 @@ function Calendar({
       className={cn('p-1 sm:p-3', className)}
       classNames={{
         months: 'flex flex-col sm:flex-row gap-2',
-        month: 'flex flex-col gap-4',
+        month: 'flex flex-col gap-2 md:gap-4',
         caption: 'flex justify-between pt-1 items-center w-full',
         caption_label: 'text-md md:text-lg lg:text-xl font-medium text-capitalize m-0 pl-2 lg:pl-4',
         nav: 'flex items-center gap-1',
@@ -57,13 +57,13 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        ...components,
         IconLeft: ({ className, ...props }) => (
           <ChevronLeft className={cn('size-4 md:size-5 lg:size-7', className)} {...props} />
         ),
         IconRight: ({ className, ...props }) => (
           <ChevronRight className={cn('size-4 md:size-5 lg:size-7', className)} {...props} />
         ),
+        ...components,
       }}
       {...props}
     />

@@ -4,7 +4,7 @@ import { EventsList } from './EventsList';
 import { TitleSearch } from './TitleSearch';
 import { TagsList } from './TagsList';
 import { AddEventButton } from './AddEventButton';
-import { AddEventForm } from './AddEventForm';
+import { EventForm } from './EventForm';
 
 export const SchedulePage = () => {
   return (
@@ -23,7 +23,7 @@ export const SchedulePage = () => {
           <EventsList />
         </div>
       </div>
-      <AddEventForm />
+      <EventForm mode='create' />
     </div>
   );
 };

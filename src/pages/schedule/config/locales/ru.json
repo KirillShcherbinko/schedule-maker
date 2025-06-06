@@ -2,5 +2,20 @@
   "titleSearch": { "placeholder": "Поиск по имени..." },
   "tagsList": { "title": "Метки" },
   "noEventsScreen": { "title": "Нет Событий" },
-  "addEventButton": { "title": "Создать" }
+  "addEventButton": { "title": "Создать" },
+  "eventForm": {
+    "title": "Название события",
+    "date": "Дата события",
+    "startTime": "Время начала",
+    "endTime": "Время конца",
+    "tags": "Метки",
+    "create": {
+      "title": "Создать",
+      "submitButtonText": "Создать"
+    },
+    "edit": {
+      "title": "Редактировать",
+      "submitButtonText": "Обновить"
+    }
+  }
 }

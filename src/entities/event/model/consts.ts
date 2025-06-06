@@ -1,6 +1,6 @@
-import type { TEvent } from "./types";
+import type { TEvent } from './types';
 import rawData from './mocks.json';
-import type { TBadgeColor } from "@/shared/ui/Badge/model/types";
+import type { TBadgeColor } from '@/shared/ui/Badge/model/types';
 
 export type TMockData = {
   events: TEvent[];
@@ -18,3 +18,5 @@ export const data: TMockData = {
     })),
   })),
 };
+
+export const EVENT_VALIDATION_LINK = 'eventValidation';

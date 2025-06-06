@@ -2,6 +2,9 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+import ruEvent from '@/entities/Event/config/locales/ru.json';
+import enEvent from '@/entities/Event/config/locales/en.json';
+
 import ruHeader from '@/widgets/header/config/locales/ru.json';
 import enHeader from '@/widgets/header/config/locales/en.json';
 
@@ -20,15 +23,17 @@ i18n
   .init({
     fallbackLng: 'ru',
     defaultNS: 'home',
-    ns: ['footer', 'header', 'home', 'schedule'],
+    ns: ['event', 'footer', 'header', 'home', 'schedule'],
     resources: {
       ru: {
+        event: ruEvent,
         footer: ruFooter,
         home: ruHome,
         header: ruHeader,
         schedule: ruSchedule,
       },
       en: {
+        event: enEvent,
         footer: enFooter,
         home: enHome,
         header: enHeader,

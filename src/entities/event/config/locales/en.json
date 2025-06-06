@@ -1,0 +1,10 @@
+{
+  "eventValidation": {
+    "titleRequired": "Event title is required",
+    "titleTooLong": "Event title cannot be longer than 100 characters",
+    "dateRequired": "Event date is required",
+    "startTimeRequired": "Start time is required",
+    "endTimeRequired": "End time is required",
+    "endTimeAfterStart": "End time must be later than start time"
+  }
+}

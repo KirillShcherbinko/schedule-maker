@@ -33,6 +33,5 @@ export const editEventsList = (
   const eventsForDate = updatedEvents[dateKey] || [];
 
   updatedEvents[dateKey] = callback(eventsForDate);
-  console.log(updatedEvents);
   return updatedEvents;
 };
