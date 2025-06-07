@@ -33,4 +33,5 @@ export const filteredEventsAtom = atom((get) => {
   }, {});
 });
 
-export const isFormOpenAtom = atom(false);
+export const isEventFormOpenAtom = atom(false);
+export const isErrorToastAtom = atom(false);

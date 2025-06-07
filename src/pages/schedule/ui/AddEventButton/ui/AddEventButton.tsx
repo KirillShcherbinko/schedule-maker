@@ -1,5 +1,5 @@
 import { useSetAtom } from 'jotai';
-import { isFormOpenAtom } from '../../../model/atoms';
+import { isEventFormOpenAtom } from '../../../model/atoms';
 import { Button } from '@/shared/ui/Button';
 import { Plus } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -10,7 +10,7 @@ import { useWindowWidth } from '@/shared/lib/hooks/useWindowWidth';
 export const AddEventButton = () => {
   const width = useWindowWidth();
   const { t } = useTranslation();
-  const setOpen = useSetAtom(isFormOpenAtom);
+  const setOpen = useSetAtom(isEventFormOpenAtom);
 
   return (
     <Button

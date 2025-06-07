@@ -5,8 +5,12 @@ import { TitleSearch } from './TitleSearch';
 import { TagsList } from './TagsList';
 import { AddEventButton } from './AddEventButton';
 import { EventForm } from './EventForm';
+import { useEventStore } from '@/entities/Event/model/store';
 
 export const SchedulePage = () => {
+  const error = useEventStore((state) => state.error);
+  if (error) console.log(error);
+
   return (
     <div className="flex flex-col">
       <Header />

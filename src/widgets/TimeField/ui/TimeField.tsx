@@ -28,13 +28,13 @@ export const TimeField = ({ name, label, className }: TimeFieldProps) => {
       <label className="block text-sm font-medium">{label}</label>
       <div className="relative">
         <Input ref={ref} readOnly className={`${className} pr-10`} value={value || ''} placeholder="HH:MM" />
-        <Popover>
+        <Popover modal={true}>
           <PopoverTrigger asChild>
             <Button variant="ghost" className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full size-7">
               <Clock className="size-4" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="p-2 flex gap-2 w-auto border-0 overflow-auto" align="end" sideOffset={4}>
+          <PopoverContent className="p-2 flex gap-2 w-auto border-0 overflow-auto" align="end">
             <ScrollArea className="h-40 w-14">
               {hours.map((hour) => (
                 <div
@@ -56,7 +56,7 @@ export const TimeField = ({ name, label, className }: TimeFieldProps) => {
                   onClick={() => onChange(`${selectedHour}:${minute}`)}
                   className={cn(
                     'cursor-pointer px-2 py-1 rounded hover:bg-accent',
-                    minute === selectedMinute && 'bg-primary text-primary-foreground',
+                    minute === selectedMinute && 'bg-primary text-primary-foreground hover:bg-primary',
                   )}
                 >
                   {minute}

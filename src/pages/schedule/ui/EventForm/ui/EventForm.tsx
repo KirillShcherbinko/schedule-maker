@@ -1,4 +1,4 @@
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEventStore } from '@/entities/Event/model/store';
 import type { TEvent } from '@/entities/Event/model/types';
@@ -9,14 +9,14 @@ import { useTranslation } from 'react-i18next';
 import { ModalFormLayout } from '@/widgets/ModalFormLayout';
 import { format } from 'date-fns';
 import { BASE_NAMESPACE } from '@/pages/schedule/config/const';
-import { EVENT_FORM_LINK } from '../model/consts';
+import { EVENT_FORM_LINK, nanoid } from '../model/consts';
 import { FormField } from '@/widgets/FormField';
 import { useParams } from 'react-router-dom';
-import { isFormOpenAtom } from '@/pages/schedule/model/atoms';
+import { isEventFormOpenAtom } from '@/pages/schedule/model/atoms';
 import { useAtom } from 'jotai';
-import { nanoid } from 'nanoid';
 import { DateField } from '@/widgets/DateField';
 import { TimeField } from '@/widgets/TimeField';
+import { TagController } from './TagController';
 
 type EventFormProps = {
   mode: 'create' | 'edit';
@@ -28,7 +28,7 @@ export const EventForm = ({ mode, event }: EventFormProps) => {
 
   const { t } = useTranslation();
 
-  const [isFormOpen, setIsFormOpen] = useAtom(isFormOpenAtom);
+  const [isFormOpen, setIsFormOpen] = useAtom(isEventFormOpenAtom);
 
   const tags = useTagStore((state) => state.tags);
   const addEvent = useEventStore((state) => state.addEvent);
@@ -81,35 +81,7 @@ export const EventForm = ({ mode, event }: EventFormProps) => {
       <DateField name="date" label={t(`${EVENT_FORM_LINK}.date`, BASE_NAMESPACE)} />
       <TimeField name="startTime" label={t(`${EVENT_FORM_LINK}.startTime`, BASE_NAMESPACE)} />
       <TimeField name="endTime" label={t(`${EVENT_FORM_LINK}.endTime`, BASE_NAMESPACE)} />
-
-      <div>
-        <label>{t(`${EVENT_FORM_LINK}.tags`, BASE_NAMESPACE)}</label>
-        <Controller
-          control={form.control}
-          name="tagIds"
-          render={({ field }) => (
-            <div className="flex flex-col gap-2">
-              {tags.map((tag) => (
-                <label key={tag.id} className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    value={tag.id}
-                    checked={field.value?.includes(tag.id)}
-                    onChange={(e) => {
-                      const isChecked = e.target.checked;
-                      const id = tag.id;
-                      const currentValue = field.value || [];
-                      const newValue = isChecked ? [...currentValue, id] : currentValue.filter((v) => v !== id);
-                      field.onChange(newValue);
-                    }}
-                  />
-                  {tag.title}
-                </label>
-              ))}
-            </div>
-          )}
-        />
-      </div>
+      <TagController control={form.control} />
     </ModalFormLayout>
   );
 };

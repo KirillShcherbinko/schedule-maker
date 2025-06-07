@@ -1,27 +1,31 @@
 import { create } from 'zustand';
-import { editEventsList, groupEventsByDate } from '../lib/utils';
+import { addEvent, editEventsList, groupEventsByDate, updateEvent } from '../lib/utils';
 import { data } from './consts';
 import type { TEventStoreAction, TEventStoreState } from './types';
 
 export const useEventStore = create<TEventStoreState & TEventStoreAction>((set) => ({
   events: groupEventsByDate(data.events),
+  error: null,
 
   setEvents: (events) => set({ events }),
+  setError: (error) => set({ error }),
 
   addEvent: (eventToAdd) =>
-    set((state) => ({
-      events: editEventsList(state.events, eventToAdd, (eventsForDate) => [...eventsForDate, eventToAdd]),
-    })),
+    set((state) => {
+      return editEventsList(state.events, eventToAdd, (eventsForDate) =>
+        addEvent(eventToAdd, eventsForDate),
+      );
+    }),
   removeEvent: (eventToRemove) =>
-    set((state) => ({
-      events: editEventsList(state.events, eventToRemove, (eventsForDate) =>
+    set((state) => {
+      return editEventsList(state.events, eventToRemove, (eventsForDate) =>
         eventsForDate.filter((event) => event.id !== eventToRemove.id),
-      ),
-    })),
+      );
+    }),
   updateEvent: (eventToUptdate, newEventData) =>
-    set((state) => ({
-      events: editEventsList(state.events, eventToUptdate, (eventsForDate) =>
-        eventsForDate.map((event) => (event.id === eventToUptdate.id ? { ...event, ...newEventData } : event)),
-      ),
-    })),
+    set((state) => {
+      return editEventsList(state.events, eventToUptdate, (eventsForDate) =>
+        updateEvent(eventToUptdate, newEventData, eventsForDate),
+      );
+    }),
 }));
