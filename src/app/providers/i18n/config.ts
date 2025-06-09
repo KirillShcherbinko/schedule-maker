@@ -29,6 +29,9 @@ import enCreateTagFormModal from '@/pages/schedule/ui/CreateTagFormModal/config/
 import ruEditEventFormModal from '@/pages/schedule/ui/EditEventFormModal/config/locales/ru.json';
 import enEditEventFormModal from '@/pages/schedule/ui/EditEventFormModal/config/locales/en.json';
 
+import ruEditTagFormModal from '@/pages/schedule/ui/EditTagFormModal/config/locales/ru.json';
+import enEditTagFormModal from '@/pages/schedule/ui/EditTagFormModal/config/locales/en.json';
+
 import ruEventForm from '@/features/EventForm/config/locales/ru.json';
 import enEventForm from '@/features/EventForm/config/locales/en.json';
 
@@ -44,6 +47,8 @@ i18n
     ns: [
       'createEventFormModal',
       'createTagFormModal',
+      'editEventFormModal',
+      'editTagFormModal',
       'event',
       'eventForm',
       'footer',
@@ -58,6 +63,7 @@ i18n
         createEventFormModal: ruCreateEventFormModal,
         createTagFormModal: ruCreateTagFormModal,
         editEventFormModal: ruEditEventFormModal,
+        editTagFormModal: ruEditTagFormModal,
         event: ruEvent,
         eventForm: ruEventForm,
         footer: ruFooter,
@@ -71,6 +77,7 @@ i18n
         createEventFormModal: enCreateEventFormModal,
         createTagFormModal: enCreateTagFormModal,
         editEventFormModal: enEditEventFormModal,
+        editTagFormModal: enEditTagFormModal,
         event: enEvent,
         eventForm: enEventForm,
         footer: enFooter,

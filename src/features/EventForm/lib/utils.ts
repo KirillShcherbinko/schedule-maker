@@ -41,3 +41,10 @@ export const eventFormUpdating = (
 
   return result;
 };
+
+export const mergeEvents = (tagEvents: TEvent[], event: TEvent) => {
+  const exists = tagEvents.some((e) => e.id === event.id);
+  return exists ? tagEvents : [...tagEvents, event];
+};
+
+export const removeEvent = (tagEvents: TEvent[], eventId: number) => tagEvents.filter((e) => e.id !== eventId);

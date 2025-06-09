@@ -5,6 +5,7 @@ import { SchedulePage } from '@/pages/schedule/ui/SchedulePage';
 import { CreateEventFormModal } from '@/pages/schedule/ui/CreateEventFormModal';
 import { EditEventFormModal } from '@/pages/schedule/ui/EditEventFormModal';
 import { CreateTagFormModal } from '@/pages/schedule/ui/CreateTagFormModal';
+import { EditTagFormModal } from '@/pages/schedule/ui/EditTagFormModal';
 
 export const AppRouter = () => {
   const location = useLocation();
@@ -55,6 +56,10 @@ export const AppRouter = () => {
     {
       path: '/schedule/:scheduleId/tag/create',
       element: <CreateTagFormModal />,
+    },
+    {
+      path: '/schedule/:scheduleId/tag/:tagId/edit',
+      element: <EditTagFormModal />,
     },
   ]);
 

@@ -26,6 +26,7 @@ export const FilterByTag = ({ tags, onFilterChange }: FilterByTagProps) => {
         <TagRecord
           key={tag.id}
           tag={tag}
+          editLink={`tag/${tag.id}/edit`}
           isChecked={selectedTags.includes(tag.id)}
           handleTagToggle={(checked: boolean) => handleTagToggle(tag.id, checked)}
         />

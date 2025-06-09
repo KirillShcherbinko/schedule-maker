@@ -35,9 +35,13 @@ export const TagForm = ({ mode }: EventFormProps) => {
     const isSuccess = handleTagSubmit(mode, formValues, dirtyFields, editedTag, scheduleId);
 
     if (isSuccess) {
-      if (mode === editMode) useTagStore.setState({ editedTag: undefined });
-      reset();
       navigate(-1);
+      setTimeout(() => {
+        if (mode === editMode) {
+          useTagStore.setState({ editedTag: undefined });
+        }
+        reset();
+      }, 0);
     }
   };
 
