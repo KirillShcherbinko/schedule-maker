@@ -6,6 +6,7 @@ import type { TEvent } from '@/entities/Event/model/types';
 import { EditButtonGroup } from '@/shared/ui/EditButtonGroup';
 import { useEventStore } from '../model/store';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useTagStore } from '@/entities/Tag/model/store';
 
 type EventProps = {
   event: TEvent;
@@ -16,7 +17,19 @@ export const Event = ({ event, editLink }: EventProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const onDelete = useEventStore((state) => state.removeEvent);
+  const allTags = useTagStore((state) => state.tags);
+  const removeEvent = useEventStore((state) => state.removeEvent);
+
+  const onDelete = () => {
+    removeEvent(event);
+
+    const updatedTags = allTags.map((tag) => {
+      const filteredEvents = tag.events.filter((e) => e.id !== event.id);
+      return { ...tag, events: filteredEvents };
+    });
+
+    useTagStore.setState({ tags: updatedTags });
+  };
 
   const onEdit = () => {
     useEventStore.setState({ editedEvent: event });
