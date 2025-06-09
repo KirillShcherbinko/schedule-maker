@@ -1,39 +1,27 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/shared/ui/Dialog';
-import { FormProvider, type FieldValues, type UseFormReturn } from 'react-hook-form';
-import { Button } from '@/shared/ui/Button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/shared/ui/Dialog';
 import type { ReactNode } from 'react';
 
-type ModalFormLayoutProps<T extends FieldValues> = {
+type ModalFormLayoutProps = {
   title: string;
-  formMethods: UseFormReturn<T>;
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  onSubmit: () => void;
   children: ReactNode;
-  submitText?: string;
+  description?: string;
 };
 
-export const ModalFormLayout = <T extends FieldValues>({
-  title,
-  formMethods,
-  open,
-  onOpenChange,
-  onSubmit,
-  children,
-  submitText = 'Submit',
-}: ModalFormLayoutProps<T>) => {
+export const ModalFormLayout = ({ title, open, onOpenChange, children, description }: ModalFormLayoutProps) => {
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent>
+    <Dialog open={open} onOpenChange={onOpenChange} aria-hidden={false}>
+      <DialogContent
+        className="max-h-[90vh] overflow-auto"
+        aria-describedby={description ? 'dialog-description' : undefined}
+        aria-hidden={false}
+      >
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
+          {description && <DialogDescription id="dialog-description">{description}</DialogDescription>}
         </DialogHeader>
-        <FormProvider {...formMethods}>
-          <form id="modal-form" onSubmit={onSubmit} className="space-y-4">
-            {children}
-            <Button type="submit">{submitText}</Button>
-          </form>
-        </FormProvider>
+        {children}
       </DialogContent>
     </Dialog>
   );

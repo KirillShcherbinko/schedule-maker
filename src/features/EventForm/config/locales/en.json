@@ -1,0 +1,15 @@
+{
+  "eventForm": {
+    "title": "Event title",
+    "date": "Event date",
+    "startTime": "Start time",
+    "endTime": "End time",
+    "tags": "Tags",
+    "create": {
+      "submitButtonText": "Create"
+    },
+    "edit": {
+      "submitButtonText": "Update"
+    }
+  }
+}

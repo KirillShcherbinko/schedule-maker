@@ -23,13 +23,9 @@ export const groupEventsByDate = (events: TEvent[]): Record<string, TEvent[]> =>
   return groupedEvents;
 };
 
-export const editEventsList = (
-  events: TEventsList,
-  event: TEvent,
-  callback: TEventCallback,
-): TEventResult => {
+export const editEventsList = (events: TEventsList, date: Date, callback: TEventCallback): TEventResult => {
   const updatedEvents = { ...events };
-  const dateKey = event.startTime.toDateString();
+  const dateKey = date.toDateString();
   const eventsForDate = updatedEvents[dateKey] || [];
 
   try {
@@ -56,7 +52,7 @@ export const addEvent = (eventToAdd: TEvent, eventsForDate: TEvent[]): TEvent[] 
       validatedEndTime >= startTime &&
       (validatedStartTime.getTime() !== startTime.getTime() || validatedEndTime.getTime() !== endTime.getTime())
     ) {
-      throw new Error('Невозможно добавить событие: пересечение с существующим событием');
+      throw new Error('Пересечение с существующим событием');
     }
 
     if (!inserted && validatedStartTime < startTime) {
@@ -74,38 +70,3 @@ export const addEvent = (eventToAdd: TEvent, eventsForDate: TEvent[]): TEvent[] 
   return updatedEventsForDate;
 };
 
-export const updateEvent = (
-  eventToUpdate: TEvent,
-  newEventData: Partial<TEvent>,
-  eventsForDate: TEvent[],
-): TEvent[] => {
-  const updatedEventsForDate = [];
-
-  for (const event of eventsForDate) {
-    if (event.id === eventToUpdate.id) continue;
-
-    const validatedStartTime = eventToUpdate.startTime;
-    const validatedEndTime = eventToUpdate.endTime;
-
-    const startTime = event.startTime;
-    const endTime = event.endTime;
-
-    if (
-      validatedStartTime <= endTime &&
-      validatedEndTime >= startTime &&
-      (validatedStartTime !== startTime || validatedEndTime !== endTime)
-    ) {
-      throw new Error('Невозможно обновить событие: пересечение с существующим событием');
-    }
-
-    for (const event of eventsForDate) {
-      if (event.id === eventToUpdate.id) {
-        updatedEventsForDate.push({ ...event, ...newEventData });
-      } else {
-        updatedEventsForDate.push(event);
-      }
-    }
-  }
-
-  return updatedEventsForDate;
-};

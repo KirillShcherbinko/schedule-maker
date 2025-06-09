@@ -15,11 +15,10 @@ export type TEventsList = Record<string, TEvent[]>;
 export type TEventStoreState = {
   events: TEventsList;
   error: TError;
+  editedEvent: TEvent | undefined;
 };
 
 export type TEventStoreAction = {
-  setEvents: (events: TEventsList) => void;
-  setError: (error: TError) => void;
   addEvent: (event: TEvent) => void;
   removeEvent: (event: TEvent) => void;
   updateEvent: (event: TEvent, eventData: Partial<TEvent>) => void;
@@ -27,3 +26,13 @@ export type TEventStoreAction = {
 
 export type TEventCallback = (eventsForDate: TEvent[]) => TEvent[];
 export type TEventResult = { events: TEventsList; error: string | null };
+
+export type TDirtyEventData = Partial<
+  Readonly<{
+    title?: boolean | undefined;
+    startTime?: boolean | undefined;
+    endTime?: boolean | undefined;
+    date?: boolean | undefined;
+    tagIds?: boolean[] | undefined;
+  }>
+>;

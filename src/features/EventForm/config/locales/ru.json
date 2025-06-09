@@ -1,0 +1,15 @@
+{
+  "eventForm": {
+    "title": "Название события",
+    "date": "Дата события",
+    "startTime": "Время начала",
+    "endTime": "Время конца",
+    "tags": "Метки",
+    "create": {
+      "submitButtonText": "Создать"
+    },
+    "edit": {
+      "submitButtonText": "Обновить"
+    }
+  }
+}

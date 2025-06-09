@@ -1,0 +1,39 @@
+import type { EventFormData } from '@/entities/Event/model/schema';
+import { nanoid } from '../model/consts';
+import type { TTag } from '@/entities/Tag/model/types';
+import type { TDirtyEventData, TEvent } from '@/entities/Event/model/types';
+
+export const eventFormAdding = (formValues: EventFormData, scheduleId: string | undefined, tags: TTag[]): TEvent => {
+  const { title, date, startTime, endTime, tagIds } = formValues;
+
+  const selectedTags = tags.filter((tag) => tagIds?.includes(tag.id));
+  const startDateTime = new Date(`${date}T${startTime}`);
+  const endDateTime = new Date(`${date}T${endTime}`);
+
+  return {
+    id: Number(nanoid()),
+    scheduleId: scheduleId ? parseInt(scheduleId) : 1,
+    title: title,
+    startTime: startDateTime,
+    endTime: endDateTime,
+    tags: selectedTags,
+  };
+};
+
+export const eventFormUpdating = (formValues: EventFormData, dirtyFileds: TDirtyEventData, tags: TTag[]): Partial<TEvent> => {
+  const { title, date, startTime, endTime, tagIds } = formValues;
+
+  const changedTitle = dirtyFileds['title'] ? title : undefined;
+  const selectedTags = dirtyFileds['tagIds'] ? tags.filter((tag) => tagIds?.includes(tag.id)) : undefined;
+  const startDateTime = dirtyFileds['date'] || dirtyFileds['startTime'] ? new Date(`${date}T${startTime}`) : undefined;
+  const endDateTime = dirtyFileds['date'] || dirtyFileds['endTime'] ? new Date(`${date}T${endTime}`) : undefined;
+
+  const result: Partial<TEvent> = {};
+
+  if (changedTitle !== undefined) result.title = changedTitle;
+  if (selectedTags !== undefined) result.tags = selectedTags;
+  if (startDateTime !== undefined) result.startTime = startDateTime;
+  if (endDateTime !== undefined) result.endTime = endDateTime;
+
+  return result;
+};

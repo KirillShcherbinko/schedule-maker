@@ -1,22 +1,23 @@
 import { useState, type ChangeEvent } from 'react';
 import { Input } from '@/shared/ui/Input';
 import { Search } from 'lucide-react';
-import type { TEventsList } from '@/entities/Event/model/types';
+import { useEventStore } from '@/entities/Event/model/store';
 
 type FilterByTitleProps = {
-  data: TEventsList;
+  baseTitle: string;
   onFilterChange: (title: string) => void;
   placeholder: string;
 };
 
-export function FilterByTitle({ data, onFilterChange, placeholder }: FilterByTitleProps) {
-  const [searchQuery, setSearchQuery] = useState('');
+export function FilterByTitle({ baseTitle, onFilterChange, placeholder }: FilterByTitleProps) {
+  const events = useEventStore((state) => state.events);
+  const [searchQuery, setSearchQuery] = useState(baseTitle);
 
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const newSearchQuery = evt.target.value;
     setSearchQuery(newSearchQuery);
 
-    if (!data) return;
+    if (!events) return;
     onFilterChange(newSearchQuery);
   };
 

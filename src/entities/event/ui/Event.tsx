@@ -5,13 +5,23 @@ import { Card } from '@/shared/ui/Card';
 import type { TEvent } from '@/entities/Event/model/types';
 import { EditButtonGroup } from '@/shared/ui/EditButtonGroup';
 import { useEventStore } from '../model/store';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 type EventProps = {
   event: TEvent;
+  editLink: string;
 };
 
-export const Event = ({ event }: EventProps) => {
+export const Event = ({ event, editLink }: EventProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const onDelete = useEventStore((state) => state.removeEvent);
+
+  const onEdit = () => {
+    useEventStore.setState({ editedEvent: event });
+    navigate(editLink, { state: { backgroundLocation: location } });
+  };
 
   const { title, startTime, endTime, tags } = event;
 
@@ -38,7 +48,7 @@ export const Event = ({ event }: EventProps) => {
             {formattedStartTime} - {formattedEndTime}
           </p>
         </div>
-        <EditButtonGroup item={event} onDelete={onDelete} />
+        <EditButtonGroup item={event} onDelete={onDelete} onEdit={onEdit} />
       </div>
 
       {tags.length > 0 && (
