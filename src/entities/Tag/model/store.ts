@@ -4,8 +4,7 @@ import { data } from './consts';
 
 export const useTagStore = create<TTagStoreState & TTagStoreAction>((set) => ({
   tags: data.tags,
-
-  setTags: (tags) => set({ tags }),
+  editedTag: undefined,
 
   addTag: (tagToAdd) =>
     set((state) => ({

@@ -1,0 +1,30 @@
+{
+  "tagForm": {
+    "title": "Tag title",
+    "color": "Tag Color",
+    "colors": [
+      "Sky",
+      "Grass",
+      "Lemon",
+      "Peach",
+      "Lavender",
+      "Mint",
+      "Rose",
+      "Sand",
+      "Ice",
+      "Plum",
+      "Ocean",
+      "Moss",
+      "Amber",
+      "Coral",
+      "Jade",
+      "Blush"
+    ],
+    "create": {
+      "submitButtonText": "Create"
+    },
+    "edit": {
+      "submitButtonText": "Update"
+    }
+  }
+}

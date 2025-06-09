@@ -5,6 +5,9 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import ruEvent from '@/entities/Event/config/locales/ru.json';
 import enEvent from '@/entities/Event/config/locales/en.json';
 
+import ruTag from '@/entities/Tag/config/locales/ru.json';
+import enTag from '@/entities/Tag/config/locales/en.json';
+
 import ruHeader from '@/widgets/header/config/locales/ru.json';
 import enHeader from '@/widgets/header/config/locales/en.json';
 
@@ -14,11 +17,14 @@ import enFooter from '@/widgets/footer/config/locales/en.json';
 import ruHome from '@/pages/home/config/locales/ru.json';
 import enHome from '@/pages/home/config/locales/en.json';
 
-import ruSchedule from '@/pages/schedule/ui/ScheduleContent/config/locales/ru.json';
-import enSchedule from '@/pages/schedule/ui/ScheduleContent/config/locales/en.json';
+import ruScheduleContent from '@/pages/schedule/ui/ScheduleContent/config/locales/ru.json';
+import enScheduleContent from '@/pages/schedule/ui/ScheduleContent/config/locales/en.json';
 
 import ruCreateEventFormModal from '@/pages/schedule/ui/CreateEventFormModal/config/locales/ru.json';
 import enCreateEventFormModal from '@/pages/schedule/ui/CreateEventFormModal/config/locales/en.json';
+
+import ruCreateTagFormModal from '@/pages/schedule/ui/CreateTagFormModal/config/locales/ru.json';
+import enCreateTagFormModal from '@/pages/schedule/ui/CreateTagFormModal/config/locales/en.json';
 
 import ruEditEventFormModal from '@/pages/schedule/ui/EditEventFormModal/config/locales/ru.json';
 import enEditEventFormModal from '@/pages/schedule/ui/EditEventFormModal/config/locales/en.json';
@@ -26,33 +32,53 @@ import enEditEventFormModal from '@/pages/schedule/ui/EditEventFormModal/config/
 import ruEventForm from '@/features/EventForm/config/locales/ru.json';
 import enEventForm from '@/features/EventForm/config/locales/en.json';
 
+import ruTagForm from '@/features/TagForm/config/locales/ru.json';
+import enTagForm from '@/features/TagForm/config/locales/en.json';
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     fallbackLng: 'ru',
     defaultNS: 'home',
-    ns: ['createEventFormModal', 'event', 'eventForm', 'footer', 'header', 'home', 'schedule'],
+    ns: [
+      'createEventFormModal',
+      'createTagFormModal',
+      'event',
+      'eventForm',
+      'footer',
+      'header',
+      'home',
+      'scheduleContent',
+      'tag',
+      'tagForm',
+    ],
     resources: {
       ru: {
         createEventFormModal: ruCreateEventFormModal,
+        createTagFormModal: ruCreateTagFormModal,
         editEventFormModal: ruEditEventFormModal,
         event: ruEvent,
         eventForm: ruEventForm,
         footer: ruFooter,
         home: ruHome,
         header: ruHeader,
-        schedule: ruSchedule,
+        scheduleContent: ruScheduleContent,
+        tag: ruTag,
+        tagForm: ruTagForm,
       },
       en: {
         createEventFormModal: enCreateEventFormModal,
+        createTagFormModal: enCreateTagFormModal,
         editEventFormModal: enEditEventFormModal,
         event: enEvent,
         eventForm: enEventForm,
         footer: enFooter,
         home: enHome,
         header: enHeader,
-        schedule: enSchedule,
+        scheduleContent: enScheduleContent,
+        tag: enTag,
+        tagForm: enTagForm,
       },
     },
     interpolation: {

@@ -11,11 +11,18 @@ export type TTag = {
 
 export type TTagStoreState = {
   tags: TTag[];
+  editedTag: TTag | undefined;
 };
 
 export type TTagStoreAction = {
-  setTags: (tags: TTag[]) => void;
   addTag: (tag: TTag) => void;
   removeTag: (tag: TTag) => void;
   updateTag: (tag: TTag, tagData: Partial<TTag>) => void;
 };
+
+export type TDirtyTagData = Partial<
+  Readonly<{
+    title?: boolean | undefined;
+    color?: boolean | undefined;
+  }>
+>;

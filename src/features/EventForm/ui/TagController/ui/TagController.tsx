@@ -5,7 +5,7 @@ import { BASE_NAMESPACE } from '../../../config/consts';
 import { useTagStore } from '@/entities/Tag/model/store';
 import { Checkbox } from '@/shared/ui/Checkbox';
 import type { CheckedState } from '@radix-ui/react-checkbox';
-import type { EventFormData } from '@/entities/Event/model/schema';
+import type { TEventFormData } from '@/entities/Event/model/schema';
 import { Button } from '@/shared/ui/Button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/shared/ui/Popover';
 import { ChevronDownIcon } from 'lucide-react';
@@ -13,10 +13,10 @@ import { ChevronDownIcon } from 'lucide-react';
 export const TagController = () => {
   const { t } = useTranslation();
   const tags = useTagStore((state) => state.tags);
-  const { control } = useFormContext<EventFormData>();
+  const { control } = useFormContext<TEventFormData>();
 
   const handleTagToggle = (
-    field: ControllerRenderProps<EventFormData, 'tagIds'>,
+    field: ControllerRenderProps<TEventFormData, 'tagIds'>,
     tagId: number,
     checked: CheckedState,
   ) => {

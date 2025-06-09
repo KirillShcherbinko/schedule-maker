@@ -1,9 +1,9 @@
-import type { EventFormData } from '@/entities/Event/model/schema';
+import type { TEventFormData } from '@/entities/Event/model/schema';
 import { nanoid } from '../model/consts';
 import type { TTag } from '@/entities/Tag/model/types';
 import type { TDirtyEventData, TEvent } from '@/entities/Event/model/types';
 
-export const eventFormAdding = (formValues: EventFormData, scheduleId: string | undefined, tags: TTag[]): TEvent => {
+export const eventFormAdding = (formValues: TEventFormData, scheduleId: string | undefined, tags: TTag[]): TEvent => {
   const { title, date, startTime, endTime, tagIds } = formValues;
 
   const selectedTags = tags.filter((tag) => tagIds?.includes(tag.id));
@@ -20,7 +20,11 @@ export const eventFormAdding = (formValues: EventFormData, scheduleId: string | 
   };
 };
 
-export const eventFormUpdating = (formValues: EventFormData, dirtyFileds: TDirtyEventData, tags: TTag[]): Partial<TEvent> => {
+export const eventFormUpdating = (
+  formValues: TEventFormData,
+  dirtyFileds: TDirtyEventData,
+  tags: TTag[],
+): Partial<TEvent> => {
   const { title, date, startTime, endTime, tagIds } = formValues;
 
   const changedTitle = dirtyFileds['title'] ? title : undefined;

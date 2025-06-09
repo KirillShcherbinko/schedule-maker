@@ -1,4 +1,4 @@
-import type { EventFormData } from '@/entities/Event/model/schema';
+import type { TEventFormData } from '@/entities/Event/model/schema';
 import { useEventStore } from '@/entities/Event/model/store';
 import type { TMode } from '../../model/types';
 import { eventFormAdding, eventFormUpdating } from '../utils';
@@ -12,7 +12,7 @@ export const useEventSubmit = () => {
 
   return (
     mode: TMode,
-    formValues: EventFormData,
+    formValues: TEventFormData,
     dirtyFields: TDirtyEventData,
     editedEvent: TEvent | undefined,
     tags: TTag[],

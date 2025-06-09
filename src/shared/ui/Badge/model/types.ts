@@ -17,7 +17,7 @@ export type TBadgeColor =
   | 'blush';
 
 export type TBadge = {
-  id?: string | number;
+  id?: number;
   title: string;
-  color: TBadgeColor;
+  color?: TBadgeColor;
 };

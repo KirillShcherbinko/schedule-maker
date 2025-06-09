@@ -1,7 +1,7 @@
 import { Card } from '@/shared/ui/Card';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import type { TBadge } from '@/shared/ui/Badge/model/types';
+import type { TBadge } from '@/features/TagForm/ui/types';
 import { BadgeList } from '@/shared/ui/BadgeList';
 import { BASE_NAMESPACE, TECH_INTRO_LINK } from '../../../config/consts';
 

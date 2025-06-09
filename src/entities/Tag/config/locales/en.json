@@ -1,0 +1,7 @@
+{
+  "tagValidation": {
+    "titleRequired": "Tag title is required",
+    "titleTooLong": "Tag title cannot be longer than 50 characters",
+    "invalidColor": "Invalied tag color"
+  }
+}

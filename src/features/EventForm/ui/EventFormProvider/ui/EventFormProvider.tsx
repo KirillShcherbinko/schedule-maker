@@ -1,4 +1,4 @@
-import { eventFormSchema, type EventFormData } from '@/entities/Event/model/schema';
+import { eventFormSchema, type TEventFormData } from '@/entities/Event/model/schema';
 import { useEventStore } from '@/entities/Event/model/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { t } from 'i18next';
@@ -13,7 +13,7 @@ type EventFormProviderProps = {
 export const EventFormProvider = ({ children }: EventFormProviderProps) => {
   const editedEvent = useEventStore((state) => state.editedEvent);
 
-  const methods = useForm<EventFormData>({
+  const methods = useForm<TEventFormData>({
     resolver: zodResolver(eventFormSchema(t)),
     defaultValues: {
       title: editedEvent?.title || '',

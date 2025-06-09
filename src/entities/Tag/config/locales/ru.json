@@ -1,0 +1,7 @@
+{
+  "tagValidation": {
+    "titleRequired": "Имя метки обязательно",
+    "titleTooLong": "Имя не может быть длиннее 50 символов",
+    "invalidColor": "Неверный цвет метки"
+  }
+}

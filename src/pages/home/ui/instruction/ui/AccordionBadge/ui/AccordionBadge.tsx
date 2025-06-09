@@ -1,6 +1,6 @@
 import { AccordionContent, AccordionItem, AccordionTrigger } from '@/shared/ui/Accordion';
 import { Badge } from '@/shared/ui/Badge';
-import type { TBadge } from '@/shared/ui/Badge/model/types';
+import type { TBadge } from '@/features/TagForm/ui/types';
 
 type AccordionBadgeProps = {
   badge: TBadge;

@@ -1,5 +1,5 @@
 import { Badge } from '@/shared/ui/Badge';
-import type { TBadge } from '../../shared/ui/Badge/model/types';
+import type { TBadge } from '../../Badge/model/types';
 import { cn } from '@/shared/lib/utils';
 
 type BadgeListProps<T extends TBadge> = {

@@ -1,5 +1,5 @@
 import { useEventStore } from '@/entities/Event/model/store';
-import { type EventFormData } from '@/entities/Event/model/schema';
+import { type TEventFormData } from '@/entities/Event/model/schema';
 import { useTranslation } from 'react-i18next';
 import { BASE_NAMESPACE } from '../config/consts';
 import { editMode, EVENT_FORM_LINK } from '../model/consts';
@@ -28,16 +28,20 @@ export const EventForm = ({ mode }: EventFormProps) => {
   const editedEvent = useEventStore((state) => state.editedEvent);
   const tags = useTagStore((state) => state.tags);
 
-  const { handleSubmit, formState, reset } = useFormContext<EventFormData>();
+  const { handleSubmit, formState, reset } = useFormContext<TEventFormData>();
   const { dirtyFields } = formState;
 
-  const onSubmit = (formValues: EventFormData) => {
+  const onSubmit = (formValues: TEventFormData) => {
     const isSuccess = handleEventSubmit(mode, formValues, dirtyFields, editedEvent, tags, scheduleId);
 
     if (isSuccess) {
-      if (mode === editMode) useEventStore.setState({ editedEvent: undefined });
-      reset();
       navigate(-1);
+      setTimeout(() => {
+        if (mode === editMode) {
+          useEventStore.setState({ editedEvent: undefined });
+        }
+        reset();
+      }, 0);
     }
   };
 

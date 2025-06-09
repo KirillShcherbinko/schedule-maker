@@ -1,3 +1,3 @@
-import type { TBadgeColor } from '@/shared/ui/Badge/model/types';
+import type { TBadgeColor } from '@/features/TagForm/ui/types';
 
 export const COLORS: TBadgeColor[] = ['rose', 'sand', 'lavender'];

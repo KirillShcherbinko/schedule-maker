@@ -29,4 +29,4 @@ export const eventFormSchema = (t: i18n['t']) => {
     );
 };
 
-export type EventFormData = z.infer<ReturnType<typeof eventFormSchema>>;
+export type TEventFormData = z.infer<ReturnType<typeof eventFormSchema>>;
