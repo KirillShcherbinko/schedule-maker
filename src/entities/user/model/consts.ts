@@ -1,0 +1,1 @@
+export const USER_VALIDATION_LINK = 'userValidation';

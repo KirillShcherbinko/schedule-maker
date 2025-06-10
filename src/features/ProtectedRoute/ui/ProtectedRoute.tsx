@@ -1,21 +1,22 @@
 import { useUserStore } from '@/entities/User/model/store';
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import React, { type ReactNode } from 'react';
+import { Navigate } from 'react-router-dom';
 
 type ProtectedRouteProps = {
   requireAuth?: boolean;
+  children: ReactNode;
 };
 
-export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ requireAuth = true }) => {
+export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ requireAuth = true, children }) => {
   const { user } = useUserStore();
 
   if (requireAuth && !user) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/auth/login" replace />;
   }
 
   if (!requireAuth && user) {
     return <Navigate to="/" replace />;
   }
 
-  return <Outlet />;
+  return children;
 };

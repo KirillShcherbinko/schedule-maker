@@ -1,0 +1,12 @@
+{
+  "login": {
+    "title": "Login",
+    "placeholder": {
+      "email": "Email Address",
+      "password": "Password"
+    },
+    "forgotPassword": "Forgot Password?",
+    "buttonText": "Login",
+    "register": "Activate your Account"
+  }
+}

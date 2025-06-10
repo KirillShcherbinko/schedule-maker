@@ -8,6 +8,8 @@
     "themeSelector": {
       "light": "Light",
       "dark": "Dark"
-    }
+    },
+    "auth": "Login",
+    "profile": "Profile"
   }
 }

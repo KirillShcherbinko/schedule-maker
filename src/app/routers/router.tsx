@@ -6,6 +6,15 @@ import { CreateEventFormModal } from '@/pages/schedule/ui/CreateEventFormModal';
 import { EditEventFormModal } from '@/pages/schedule/ui/EditEventFormModal';
 import { CreateTagFormModal } from '@/pages/schedule/ui/CreateTagFormModal';
 import { EditTagFormModal } from '@/pages/schedule/ui/EditTagFormModal';
+import { LoginPage } from '@/pages/auth/ui/login';
+import { AuthPage } from '@/pages/auth';
+import { ProfilePage } from '@/pages/profile';
+import { RegisterPage } from '@/pages/auth/ui/register';
+import { ForgotPasswordPage } from '@/pages/auth/ui/ForgotPassword';
+import { ResetPasswordPage } from '@/pages/auth/ui/ResetPassword';
+import { NotFoundPage } from '@/pages/NotFound';
+import { CreateScheduleFormModal } from '@/pages/profile/ui/CreateScheduleFormModal';
+import { EditScheduleFormModal } from '@/pages/profile/ui/EditScheduleFormModal';
 
 export const AppRouter = () => {
   const location = useLocation();
@@ -19,18 +28,26 @@ export const AppRouter = () => {
       },
       {
         path: '/auth',
-        element: <ProtectedRoute requireAuth={false} />,
+        element: (
+          <ProtectedRoute requireAuth={false}>
+            <AuthPage />
+          </ProtectedRoute>
+        ),
         children: [
-          { index: true, element: <div>not found</div> },
-          { path: 'login', element: <div>login page</div> },
-          { path: 'register', element: <div>register page</div> },
-          { path: 'forgot-password', element: <div>forgot password</div> },
-          { path: 'reset-password', element: <div>reset password</div> },
+          { index: true, element: <NotFoundPage /> },
+          { path: 'login', element: <LoginPage /> },
+          { path: 'register', element: <RegisterPage /> },
+          { path: 'forgot-password', element: <ForgotPasswordPage /> },
+          { path: 'reset-password', element: <ResetPasswordPage /> },
         ],
       },
       {
-        element: <ProtectedRoute requireAuth={true} />,
-        children: [{ path: 'profile', element: <div>profile</div> }],
+        path: '/profile',
+        element: (
+          <ProtectedRoute requireAuth={false}>
+            <ProfilePage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '/schedule/:scheduleId',
@@ -38,7 +55,7 @@ export const AppRouter = () => {
       },
       {
         path: '*',
-        element: <div>not found</div>,
+        element: <NotFoundPage />,
       },
     ],
     backgroundLocation || location,
@@ -60,6 +77,14 @@ export const AppRouter = () => {
     {
       path: '/schedule/:scheduleId/tag/:tagId/edit',
       element: <EditTagFormModal />,
+    },
+    {
+      path: '/profile/:scheduleId/create',
+      element: <CreateScheduleFormModal />,
+    },
+    {
+      path: '/schedule/:scheduleId/edit',
+      element: <EditScheduleFormModal />,
     },
   ]);
 

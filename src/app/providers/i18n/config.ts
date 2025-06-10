@@ -8,6 +8,9 @@ import enEvent from '@/entities/Event/config/locales/en.json';
 import ruTag from '@/entities/Tag/config/locales/ru.json';
 import enTag from '@/entities/Tag/config/locales/en.json';
 
+import ruUser from '@/entities/User/config/locales/ru.json';
+import enUser from '@/entities/User/config/locales/en.json';
+
 import ruHeader from '@/widgets/header/config/locales/ru.json';
 import enHeader from '@/widgets/header/config/locales/en.json';
 
@@ -16,6 +19,9 @@ import enFooter from '@/widgets/footer/config/locales/en.json';
 
 import ruHome from '@/pages/home/config/locales/ru.json';
 import enHome from '@/pages/home/config/locales/en.json';
+
+import ruLogin from '@/pages/auth/ui/login/config/locales/ru.json';
+import enLogin from '@/pages/auth/ui/login/config/locales/en.json';
 
 import ruScheduleContent from '@/pages/schedule/ui/ScheduleContent/config/locales/ru.json';
 import enScheduleContent from '@/pages/schedule/ui/ScheduleContent/config/locales/en.json';
@@ -54,9 +60,11 @@ i18n
       'footer',
       'header',
       'home',
+      'login',
       'scheduleContent',
       'tag',
       'tagForm',
+      'user',
     ],
     resources: {
       ru: {
@@ -69,9 +77,11 @@ i18n
         footer: ruFooter,
         home: ruHome,
         header: ruHeader,
+        login: ruLogin,
         scheduleContent: ruScheduleContent,
         tag: ruTag,
         tagForm: ruTagForm,
+        user: ruUser,
       },
       en: {
         createEventFormModal: enCreateEventFormModal,
@@ -83,9 +93,11 @@ i18n
         footer: enFooter,
         home: enHome,
         header: enHeader,
+        login: enLogin,
         scheduleContent: enScheduleContent,
         tag: enTag,
         tagForm: enTagForm,
+        user: enUser,
       },
     },
     interpolation: {

@@ -1,0 +1,12 @@
+{
+  "login": {
+    "title": "Войти",
+    "placeholder": {
+      "email": "Адрес электронной почты",
+      "password": "Пароль"
+    },
+    "forgotPassword": "Забыли пароль?",
+    "buttonText": "Войти",
+    "register": "Активируйте учётную запись"
+  }
+}

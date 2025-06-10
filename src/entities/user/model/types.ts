@@ -3,12 +3,12 @@ export type TUser = {
   email: string;
   refreshToken: string;
   accessToken: string;
-}
+};
 
 export type TStoreState = {
-  user:TUser | null;
-}
+  user: TUser | null;
+};
 
 export type TStoreAction = {
   setUser: (user: TUser) => void;
-}
+};

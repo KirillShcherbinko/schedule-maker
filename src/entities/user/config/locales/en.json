@@ -1,0 +1,7 @@
+{
+  "userValidation": {
+    "invalidEmail": "Invalid email format",
+    "passwordTooShort": "The password must be at least 8 characters long",
+    "passwordTooLong": "The password must be no longer than 32 characters"
+  }
+}

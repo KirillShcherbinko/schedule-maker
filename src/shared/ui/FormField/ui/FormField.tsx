@@ -5,7 +5,7 @@ import type { InputHTMLAttributes } from 'react';
 
 type FormFieldProps = {
   name: string;
-  label: string;
+  label?: string;
   className?: string;
   type?: string;
   inputProps?: InputHTMLAttributes<HTMLInputElement>;

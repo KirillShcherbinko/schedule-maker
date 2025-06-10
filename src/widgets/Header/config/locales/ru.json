@@ -8,6 +8,8 @@
     "themeSelector": {
       "light": "Светлая",
       "dark": "Тёмная"
-    }
+    },
+    "auth": "Войти",
+    "profile": "Профиль"
   }
 }
