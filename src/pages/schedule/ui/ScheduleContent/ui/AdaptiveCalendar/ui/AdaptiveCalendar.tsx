@@ -17,7 +17,7 @@ export const AdaptiveCalendar = () => {
   };
 
   return (
-    <div className="p-0 flex flex-col">
+    <div className="p-0 flex flex-col" data-testid="calendar-container">
       {width > BREAKING_WIDTH ? (
         <Calendar
           mode="single"

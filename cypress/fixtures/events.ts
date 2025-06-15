@@ -11,18 +11,18 @@ export type TestEventData = {
 
 export const testEventData: TestEventData = {
   title: 'Тестовое событие Cypress',
-  date: '2024-12-31',
+  date: '2025-06-10',
   startTime: '10:00',
   endTime: '11:30',
   tags: [
-    { title: 'Важное', color: 'rose' },
-    { title: 'Встреча', color: 'lavender' }
+    { title: 'Work', color: 'sky' },
+    { title: 'Meeting', color: 'lavender' }
   ]
 };
 
 export const minimalEventData: TestEventData = {
   title: 'Минимальное событие',
-  date: '2024-12-31',
+  date: '2025-06-10',
   startTime: '09:00',
   endTime: '09:30'
 };

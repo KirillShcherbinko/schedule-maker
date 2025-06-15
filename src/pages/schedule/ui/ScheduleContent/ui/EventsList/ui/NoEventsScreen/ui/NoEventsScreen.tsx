@@ -14,7 +14,7 @@ export const NoEventsScreen = () => {
   const [selectedDate] = useAtom(selectedDateAtom);
 
   return (
-    <div className="flex flex-col justify-center items-center pt-2">
+    <div data-testid="no-events" className="flex flex-col justify-center items-center pt-2">
       <h3 className="font-bold self-center text-xl w-full max-w-[550px]">
         {format(selectedDate, 'PPP', { locale: i18n.language === 'ru' ? customRu : enUS })}
       </h3>

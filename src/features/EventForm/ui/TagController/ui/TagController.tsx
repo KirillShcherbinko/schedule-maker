@@ -33,7 +33,11 @@ export const TagController = () => {
         render={({ field }) => (
           <>
             <PopoverTrigger asChild className="rounded-2xl border border-input hover:bg-accent/50">
-              <Button variant="ghost" className="flex w-full justify-between [&[data-state=open]>svg]:rotate-180 p-5">
+              <Button
+                data-testid="tag-selector"
+                variant="ghost"
+                className="flex w-full justify-between [&[data-state=open]>svg]:rotate-180 p-5"
+              >
                 <label className="block text-sm font-medium">{t(`${EVENT_FORM_LINK}.tags`, BASE_NAMESPACE)}</label>
                 <ChevronDownIcon className="text-foreground pointer-events-none size-6 md:size-8 shrink-0 transition-transform duration-300" />
               </Button>
@@ -46,6 +50,7 @@ export const TagController = () => {
                 {tags.map((tag) => (
                   <div key={tag.id} className="flex items-center gap-3 min-w-0 w-full">
                     <Checkbox
+                      data-testid={`tag-checkbox-${tag.title}`}
                       className="w-5 h-5 text-lg shrink-0"
                       variant={tag.color}
                       id={String(tag.id)}

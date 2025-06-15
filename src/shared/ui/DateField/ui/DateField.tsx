@@ -3,8 +3,9 @@ import { Input } from '@/shared/ui/Input';
 import { CalendarIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Popover, PopoverTrigger, PopoverContent } from '@/shared/ui/Popover';
 import { Calendar } from '@/shared/ui/Calendar';
-import { format } from 'date-fns';
+import { format, parse } from 'date-fns';
 import { Button } from '@/shared/ui/Button';
+import { useState } from 'react';
 
 type DateFieldProps = {
   name: string;
@@ -16,17 +17,40 @@ export const DateField = ({ name, label, className }: DateFieldProps) => {
   const { control } = useFormContext();
 
   const {
-    field: { value, onChange },
+    field: { value, onChange, onBlur, ref },
     fieldState: { error },
   } = useController({ name, control });
 
-  const selectedDate = new Date(value);
+  const [inputValue, setInputValue] = useState(value || '');
+
+  const selectedDate = inputValue
+    ? parse(inputValue, 'yyyy-MM-dd', new Date())
+    : undefined;
+
+  const handleDateSelect = (date: Date | undefined) => {
+    const formatted = date ? format(date, 'yyyy-MM-dd') : '';
+    setInputValue(formatted);
+    onChange(formatted);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    onChange(e.target.value);
+  };
 
   return (
     <div className="space-y-1">
       <label className="block text-sm font-medium">{label}</label>
       <div className="relative">
-        <Input readOnly className={`${className} pr-10`} value={value || ''} placeholder="YYYY-MM-DD" />
+        <Input
+          ref={ref}
+          name={name}
+          className={`${className} pr-10`}
+          value={inputValue}
+          onChange={handleInputChange}
+          onBlur={onBlur}
+          placeholder="YYYY-MM-DD"
+        />
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="ghost" className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full size-7">
@@ -47,7 +71,7 @@ export const DateField = ({ name, label, className }: DateFieldProps) => {
                 IconRight: () => <ChevronRight className="size-4" />,
               }}
               selected={selectedDate}
-              onSelect={(date) => onChange(date ? format(date, 'yyyy-MM-dd') : '')}
+              onSelect={handleDateSelect}
               initialFocus
             />
           </PopoverContent>

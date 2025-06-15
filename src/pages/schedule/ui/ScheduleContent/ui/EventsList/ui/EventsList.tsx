@@ -20,8 +20,11 @@ export const EventsList = () => {
   if (!selectedEvents || !selectedEvents.length) return <NoEventsScreen />;
 
   return (
-    <div className="flex flex-col gap-4 w-full overflow-auto h-[620px] pt-2 pl-[6px] scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-500">
-      <h3 className="font-bold self-center text-xl w-full max-w-[550px]">
+    <div
+      data-testid="event-list"
+      className="flex flex-col gap-4 w-full overflow-auto h-[620px] pt-2 pl-[6px] scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-500"
+    >
+      <h3 data-testid="calendar-day" className="font-bold self-center text-xl w-full max-w-[550px]">
         {format(selectedDate, 'PPP', { locale: i18n.language === 'ru' ? customRu : enUS })}
       </h3>
       <AnimatePresence mode="popLayout">
