@@ -1,20 +1,20 @@
 import { useRoutes, useLocation } from 'react-router-dom';
-import { ProtectedRoute } from '@/features/ProtectedRoute';
+import { ProtectedRoute } from '@/features/protected-route';
 import { HomePage } from '@/pages/home';
-import { SchedulePage } from '@/pages/schedule/ui/SchedulePage';
-import { CreateEventFormModal } from '@/pages/schedule/ui/CreateEventFormModal';
-import { EditEventFormModal } from '@/pages/schedule/ui/EditEventFormModal';
-import { CreateTagFormModal } from '@/pages/schedule/ui/CreateTagFormModal';
-import { EditTagFormModal } from '@/pages/schedule/ui/EditTagFormModal';
-import { LoginPage } from '@/pages/auth/ui/login';
-import { AuthPage } from '@/pages/auth';
+import { SchedulePage } from '@/pages/schedule/ui';
+import { CreateEventFormModal } from '@/pages/schedule/ui/create-event-form-modal';
+import { EditEventFormModal } from '@/pages/schedule/ui/edit-event-form-modal';
+import { CreateTagFormModal } from '@/pages/schedule/ui/create-tag-form-modal';
+import { EditTagFormModal } from '@/pages/schedule/ui/edit-tag-form-modal';
+import { LoginPage } from '@/pages/auth';
+import { AuthLayout } from '@/pages/auth';
 import { ProfilePage } from '@/pages/profile';
-import { RegisterPage } from '@/pages/auth/ui/register';
-import { ForgotPasswordPage } from '@/pages/auth/ui/ForgotPassword';
-import { ResetPasswordPage } from '@/pages/auth/ui/ResetPassword';
-import { NotFoundPage } from '@/pages/NotFound';
-import { CreateScheduleFormModal } from '@/pages/profile/ui/CreateScheduleFormModal';
-import { EditScheduleFormModal } from '@/pages/profile/ui/EditScheduleFormModal';
+import { RegisterPage } from '@/pages/auth';
+import { ForgotPasswordPage } from '@/pages/auth';
+import { ResetPasswordPage } from '@/pages/auth';
+import { NotFoundPage } from '@/pages/not-found';
+import { CreateScheduleFormModal } from '@/pages/profile';
+import { EditScheduleFormModal } from '@/pages/profile';
 
 export const AppRouter = () => {
   const location = useLocation();
@@ -30,7 +30,7 @@ export const AppRouter = () => {
         path: '/auth',
         element: (
           <ProtectedRoute requireAuth={false}>
-            <AuthPage />
+            <AuthLayout />
           </ProtectedRoute>
         ),
         children: [

@@ -1,1 +1,1 @@
-export const LOGIN_LINK = 'login';
+export const LOGIN_NAMESPACE = { ns: 'login' };

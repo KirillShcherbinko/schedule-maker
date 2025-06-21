@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import './App.scss';
 import { AppRouter } from './routers/router';
-import { ThemeProvider } from '@/entities/Theme/ui/ThemeProvider';
+import { ThemeProvider } from '@/entities/theme';
 
 function App() {
   return (

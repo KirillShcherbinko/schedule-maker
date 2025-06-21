@@ -1,5 +1,5 @@
-import type { TEvent } from '@/entities/Event/model/types';
-import type { TBadgeColor } from '@/shared/ui/Badge/model/types';
+import type { TEvent } from '@/entities/event';
+import type { TBadgeColor } from '@/shared/ui/badge';
 
 export type TTag = {
   id: number;

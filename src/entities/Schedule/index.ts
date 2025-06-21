@@ -1,1 +1,5 @@
-export { Schedule } from './ui/Schedule';
+export { Schedule } from './ui';
+
+export { useScheduleStore } from './model/store';
+
+export type { TSchedule } from './model/types';

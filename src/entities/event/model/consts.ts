@@ -1,6 +1,6 @@
-import type { TEvent } from './types';
 import rawData from './mocks.json';
-import type { TBadgeColor } from '@/features/TagForm/ui/types';
+import type { TBadgeColor } from '@/shared/ui/badge';
+import type { TEvent } from './types';
 
 export type TMockData = {
   events: TEvent[];
@@ -20,3 +20,4 @@ export const data: TMockData = {
 };
 
 export const EVENT_VALIDATION_LINK = 'eventValidation';
+export const EVENT_NAMESPACE = { ns: 'event' };

@@ -1,0 +1,1 @@
+export { CalendarWithEventsCounter } from './ui';

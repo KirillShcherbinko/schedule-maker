@@ -1,7 +1,7 @@
 import type { TTag } from './types';
 import rawData from './mocks.json';
-import type { TEvent } from '@/entities/Event/model/types';
-import type { TBadgeColor } from '@/shared/ui/Badge/model/types';
+import type { TEvent } from '@/entities/event';
+import type { TBadgeColor } from '@/shared/ui/badge';
 
 export type TMockData = {
   tags: TTag[];
@@ -16,6 +16,7 @@ export const data: TMockData = {
 };
 
 export const TAG_VALIDATION_LINK = 'tagValidation';
+export const TAG_NAMESPACE = { ns: 'tag' };
 
 export const colors = [
   'sky',

@@ -1,0 +1,1 @@
+export const TAGS_LIST_BREAKING_WIDTH = 748;

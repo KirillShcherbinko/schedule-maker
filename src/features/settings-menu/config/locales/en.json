@@ -1,0 +1,15 @@
+{
+  "title": "Settings",
+  "languageSelector": {
+    "russian": "Russian",
+    "english": "English"
+  },
+  "themeSelector": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "auth": {
+    "login": "Login",
+    "profile": "Profile"
+  }
+}

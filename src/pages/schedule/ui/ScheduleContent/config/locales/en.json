@@ -1,6 +1,0 @@
-{
-  "titleSearch": { "placeholder": "Filter by title..." },
-  "tagsList": { "title": "Tags" },
-  "noEventsScreen": { "title": "No events" },
-  "addEventButton": { "title": "Create" }
-}

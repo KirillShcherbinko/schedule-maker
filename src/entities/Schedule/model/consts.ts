@@ -1,21 +1,21 @@
-import type { TSchedule } from "@/entities/Schedule/model/types";
+import type { TSchedule } from '../model/types';
 
 export const data: TSchedule[] = [
   {
     id: 1,
-    title: "ВУЗ",
+    title: 'ВУЗ',
     events: [],
     tags: [],
   },
   {
     id: 2,
-    title: "Жизнь",
+    title: 'Жизнь',
     events: [],
     tags: [],
   },
   {
     id: 3,
-    title: "Паровозы",
+    title: 'Паровозы',
     events: [],
     tags: [],
   },

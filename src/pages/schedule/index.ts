@@ -1,1 +1,1 @@
-export { Schedule } from './ui/SchedulePage';
+export { SchedulePage } from './ui';

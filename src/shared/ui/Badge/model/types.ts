@@ -15,9 +15,3 @@ export type TBadgeColor =
   | 'coral'
   | 'jade'
   | 'blush';
-
-export type TBadge = {
-  id?: number;
-  title: string;
-  color?: TBadgeColor;
-};

@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, ThemeContext } from '../config/ThemeContext';
+import { ThemeContext } from '../config/ThemeContext';
 import type { TTheme } from '../model/types';
+import { LOCAL_STORAGE_THEME_KEY } from '../model/consts';
 
 type ThemeProviderProps = {
   children: ReactNode;

@@ -7,4 +7,3 @@ export type TThemeContext = {
 };
 
 export const ThemeContext = createContext<TThemeContext | null>(null);
-export const LOCAL_STORAGE_THEME_KEY = 'theme';

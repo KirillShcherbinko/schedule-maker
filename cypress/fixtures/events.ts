@@ -1,13 +1,13 @@
-import type { TEvent } from '@/entities/Event/model/types';
-import type { TTag } from '@/entities/Tag/model/types';
+import type { TEvent } from '@/entities/event';
+import type { TTag } from '@/entities/tag';
 
 export type TestEventData = {
   title: string;
-  date: string; 
+  date: string;
   startTime: string;
   endTime: string;
   tags?: Pick<TTag, 'title' | 'color'>[];
-}
+};
 
 export const testEventData: TestEventData = {
   title: 'Тестовое событие Cypress',
@@ -16,15 +16,15 @@ export const testEventData: TestEventData = {
   endTime: '11:30',
   tags: [
     { title: 'Work', color: 'sky' },
-    { title: 'Meeting', color: 'lavender' }
-  ]
+    { title: 'Meeting', color: 'lavender' },
+  ],
 };
 
 export const minimalEventData: TestEventData = {
   title: 'Минимальное событие',
   date: '2025-06-10',
   startTime: '09:00',
-  endTime: '09:30'
+  endTime: '09:30',
 };
 
 export const mockEventResponse = (data: TestEventData): TEvent => ({
@@ -38,6 +38,6 @@ export const mockEventResponse = (data: TestEventData): TEvent => ({
     scheduleId: 1,
     title: tag.title,
     color: tag.color,
-    events: []
-  }))
+    events: [],
+  })),
 });

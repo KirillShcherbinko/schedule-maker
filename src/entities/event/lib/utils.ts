@@ -1,5 +1,4 @@
-import type { TEvent, TEventResult, TEventsList } from '@/entities/Event/model/types';
-import type { TEventCallback } from '../model/types';
+import type { TEvent, TEventResult, TEventsList, TEventCallback } from '../model/types';
 
 export const groupEventsByDate = (events: TEvent[]): Record<string, TEvent[]> => {
   const groupedEvents: Record<string, TEvent[]> = {};
@@ -69,4 +68,3 @@ export const addEvent = (eventToAdd: TEvent, eventsForDate: TEvent[]): TEvent[] 
 
   return updatedEventsForDate;
 };
-

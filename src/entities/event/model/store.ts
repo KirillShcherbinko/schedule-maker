@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { addEvent, editEventsList, groupEventsByDate } from '../lib/utils';
 import { data } from './consts';
-import type { TEventStoreAction, TEventStoreState } from './types';
+import type { TEventStoreState, TEventStoreAction } from './types';
 
 export const useEventStore = create<TEventStoreState & TEventStoreAction>((set) => ({
   events: groupEventsByDate(data.events),

@@ -1,1 +1,1 @@
-export { Instruction } from './ui/Instruction';
+export { Instruction } from './ui';

@@ -1,0 +1,15 @@
+{
+  "title": "Настройки",
+  "languageSelector": {
+    "russian": "Русский",
+    "english": "Английский"
+  },
+  "themeSelector": {
+    "light": "Светлая",
+    "dark": "Тёмная"
+  },
+  "auth": {
+    "login": "Войти",
+    "profile": "Профиль"
+  }
+}

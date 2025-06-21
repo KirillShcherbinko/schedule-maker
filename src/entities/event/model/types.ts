@@ -1,4 +1,4 @@
-import type { TTag } from '@/entities/Tag/model/types';
+import type { TTag } from '@/entities/tag';
 import type { TError } from '@/shared/model/types';
 
 export type TEvent = {

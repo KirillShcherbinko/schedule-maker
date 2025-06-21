@@ -2,17 +2,20 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import ruEvent from '@/entities/Event/config/locales/ru.json';
-import enEvent from '@/entities/Event/config/locales/en.json';
+import ruEvent from '@/entities/event/config/locales/ru.json';
+import enEvent from '@/entities/event/config/locales/en.json';
 
-import ruTag from '@/entities/Tag/config/locales/ru.json';
-import enTag from '@/entities/Tag/config/locales/en.json';
+import ruTag from '@/entities/tag/config/locales/ru.json';
+import enTag from '@/entities/tag/config/locales/en.json';
 
-import ruUser from '@/entities/User/config/locales/ru.json';
-import enUser from '@/entities/User/config/locales/en.json';
+import ruUser from '@/entities/user/config/locales/ru.json';
+import enUser from '@/entities/user/config/locales/en.json';
 
-import ruHeader from '@/widgets/header/config/locales/ru.json';
-import enHeader from '@/widgets/header/config/locales/en.json';
+import { ruEventsList } from '@/widgets/events-list';
+import { enEventsList } from '@/widgets/events-list';
+
+import ruSettingsMenu from '@/features/settings-menu/config/locales/ru.json';
+import enSettingsMenu from '@/features/settings-menu/config/locales/en.json';
 
 import ruFooter from '@/widgets/footer/config/locales/ru.json';
 import enFooter from '@/widgets/footer/config/locales/en.json';
@@ -23,26 +26,32 @@ import enHome from '@/pages/home/config/locales/en.json';
 import ruLogin from '@/pages/auth/ui/login/config/locales/ru.json';
 import enLogin from '@/pages/auth/ui/login/config/locales/en.json';
 
-import ruScheduleContent from '@/pages/schedule/ui/ScheduleContent/config/locales/ru.json';
-import enScheduleContent from '@/pages/schedule/ui/ScheduleContent/config/locales/en.json';
+import ruScheduleContent from '@/pages/schedule/ui/schedule-content/config/locales/ru.json';
+import enScheduleContent from '@/pages/schedule/ui/schedule-content/config/locales/en.json';
 
-import ruCreateEventFormModal from '@/pages/schedule/ui/CreateEventFormModal/config/locales/ru.json';
-import enCreateEventFormModal from '@/pages/schedule/ui/CreateEventFormModal/config/locales/en.json';
+import { ruAddEventButton } from '@/features/add-event-button';
+import { enAddEventButton } from '@/features/add-event-button';
 
-import ruCreateTagFormModal from '@/pages/schedule/ui/CreateTagFormModal/config/locales/ru.json';
-import enCreateTagFormModal from '@/pages/schedule/ui/CreateTagFormModal/config/locales/en.json';
+import { ruAddTagButton } from '@/features/add-tag-button';
+import { enAddTagButton } from '@/features/add-tag-button';
 
-import ruEditEventFormModal from '@/pages/schedule/ui/EditEventFormModal/config/locales/ru.json';
-import enEditEventFormModal from '@/pages/schedule/ui/EditEventFormModal/config/locales/en.json';
+import ruCreateEventFormModal from '@/pages/schedule/ui/create-event-form-modal/config/locales/ru.json';
+import enCreateEventFormModal from '@/pages/schedule/ui/create-event-form-modal/config/locales/en.json';
 
-import ruEditTagFormModal from '@/pages/schedule/ui/EditTagFormModal/config/locales/ru.json';
-import enEditTagFormModal from '@/pages/schedule/ui/EditTagFormModal/config/locales/en.json';
+import ruCreateTagFormModal from '@/pages/schedule/ui/create-tag-form-modal/config/locales/ru.json';
+import enCreateTagFormModal from '@/pages/schedule/ui/create-tag-form-modal/config/locales/en.json';
 
-import ruEventForm from '@/features/EventForm/config/locales/ru.json';
-import enEventForm from '@/features/EventForm/config/locales/en.json';
+import ruEditEventFormModal from '@/pages/schedule/ui/edit-event-form-modal/config/locales/ru.json';
+import enEditEventFormModal from '@/pages/schedule/ui/edit-event-form-modal/config/locales/en.json';
 
-import ruTagForm from '@/features/TagForm/config/locales/ru.json';
-import enTagForm from '@/features/TagForm/config/locales/en.json';
+import ruEditTagFormModal from '@/pages/schedule/ui/edit-tag-form-modal/config/locales/ru.json';
+import enEditTagFormModal from '@/pages/schedule/ui/edit-tag-form-modal/config/locales/en.json';
+
+import ruEventForm from '@/features/event-form/config/locales/ru.json';
+import enEventForm from '@/features/event-form/config/locales/en.json';
+
+import ruTagForm from '@/features/tag-form/config/locales/ru.json';
+import enTagForm from '@/features/tag-form/config/locales/en.json';
 
 i18n
   .use(LanguageDetector)
@@ -51,50 +60,59 @@ i18n
     fallbackLng: 'ru',
     defaultNS: 'home',
     ns: [
+      'addEventButton',
+      'addTagButton',
       'createEventFormModal',
       'createTagFormModal',
       'editEventFormModal',
       'editTagFormModal',
       'event',
       'eventForm',
+      'eventsList',
       'footer',
-      'header',
       'home',
       'login',
       'scheduleContent',
+      'settingsMenu',
       'tag',
       'tagForm',
       'user',
     ],
     resources: {
       ru: {
+        addEventButton: ruAddEventButton,
+        addTagButton: ruAddTagButton,
         createEventFormModal: ruCreateEventFormModal,
         createTagFormModal: ruCreateTagFormModal,
         editEventFormModal: ruEditEventFormModal,
         editTagFormModal: ruEditTagFormModal,
         event: ruEvent,
         eventForm: ruEventForm,
+        eventsList: ruEventsList,
         footer: ruFooter,
         home: ruHome,
-        header: ruHeader,
         login: ruLogin,
         scheduleContent: ruScheduleContent,
+        settings: ruSettingsMenu,
         tag: ruTag,
         tagForm: ruTagForm,
         user: ruUser,
       },
       en: {
+        addEventButton: enAddEventButton,
+        addTagButton: enAddTagButton,
         createEventFormModal: enCreateEventFormModal,
         createTagFormModal: enCreateTagFormModal,
         editEventFormModal: enEditEventFormModal,
         editTagFormModal: enEditTagFormModal,
         event: enEvent,
         eventForm: enEventForm,
+        eventsList: enEventsList,
         footer: enFooter,
         home: enHome,
-        header: enHeader,
         login: enLogin,
         scheduleContent: enScheduleContent,
+        settings: enSettingsMenu,
         tag: enTag,
         tagForm: enTagForm,
         user: enUser,

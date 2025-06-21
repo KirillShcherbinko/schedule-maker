@@ -1,5 +1,5 @@
-import type { TEvent } from '@/entities/Event/model/types';
-import type { TTag } from '@/entities/Tag/model/types';
+import type { TEvent } from '@/entities/event';
+import type { TTag } from '@/entities/tag';
 
 export type TSchedule = {
   id: number;
